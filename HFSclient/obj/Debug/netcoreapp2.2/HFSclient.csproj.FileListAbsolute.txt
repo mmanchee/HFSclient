@@ -1,0 +1,14 @@
+C:\Users\mikem\Desktop\coding-practice\HFSclient.Solution\hfsclient\obj\Debug\netcoreapp2.2\HFSclient.csprojAssemblyReference.cache
+C:\Users\mikem\Desktop\coding-practice\HFSclient.Solution\hfsclient\obj\Debug\netcoreapp2.2\HFSclient.csproj.CoreCompileInputs.cache
+C:\Users\mikem\Desktop\coding-practice\HFSclient.Solution\hfsclient\obj\Debug\netcoreapp2.2\HFSclient.RazorAssemblyInfo.cache
+C:\Users\mikem\Desktop\coding-practice\HFSclient.Solution\hfsclient\obj\Debug\netcoreapp2.2\HFSclient.RazorAssemblyInfo.cs
+C:\Users\mikem\Desktop\coding-practice\HFSclient.Solution\hfsclient\obj\Debug\netcoreapp2.2\HFSclient.AssemblyInfoInputs.cache
+C:\Users\mikem\Desktop\coding-practice\HFSclient.Solution\hfsclient\obj\Debug\netcoreapp2.2\HFSclient.AssemblyInfo.cs
+C:\Users\mikem\Desktop\coding-practice\HFSclient.Solution\hfsclient\bin\Debug\netcoreapp2.2\HFSclient.deps.json
+C:\Users\mikem\Desktop\coding-practice\HFSclient.Solution\hfsclient\bin\Debug\netcoreapp2.2\HFSclient.runtimeconfig.json
+C:\Users\mikem\Desktop\coding-practice\HFSclient.Solution\hfsclient\bin\Debug\netcoreapp2.2\HFSclient.runtimeconfig.dev.json
+C:\Users\mikem\Desktop\coding-practice\HFSclient.Solution\hfsclient\bin\Debug\netcoreapp2.2\HFSclient.dll
+C:\Users\mikem\Desktop\coding-practice\HFSclient.Solution\hfsclient\bin\Debug\netcoreapp2.2\HFSclient.pdb
+C:\Users\mikem\Desktop\coding-practice\HFSclient.Solution\hfsclient\obj\Debug\netcoreapp2.2\HFSclient.RazorTargetAssemblyInfo.cache
+C:\Users\mikem\Desktop\coding-practice\HFSclient.Solution\hfsclient\obj\Debug\netcoreapp2.2\HFSclient.dll
+C:\Users\mikem\Desktop\coding-practice\HFSclient.Solution\hfsclient\obj\Debug\netcoreapp2.2\HFSclient.pdb

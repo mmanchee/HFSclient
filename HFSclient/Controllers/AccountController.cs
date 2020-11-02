@@ -28,8 +28,8 @@ namespace HFSclient.Controllers
     {
         var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         var currentUser = await _userManager.FindByIdAsync(userId);
-        var userHistory = _db.Checkouts.Where(entry => entry.User.Id == currentUser.Id).ToList();
-        return View(userHistory);
+        // var userHistory = _db.Checkouts.Where(entry => entry.User.Id == currentUser.Id).ToList();
+        return View();
     }
 
     public IActionResult Register()
