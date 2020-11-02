@@ -21,13 +21,13 @@ namespace HFSclient.Controllers
       return View(model);
     }
 
-    [Authorize(Roles = "Administrator")]
+    [Authorize]
     public ActionResult Create()
     {
       return View();
     }
 
-    [Authorize(Roles = "Administrator")]
+    [Authorize]
     [HttpPost]
     public ActionResult Create(Owner owner)
     {
@@ -42,14 +42,14 @@ namespace HFSclient.Controllers
       return View(thisOwner);
     }
 
-    [Authorize(Roles = "Administrator")]
+    [Authorize]
     public ActionResult Edit(int id)
     {
       var thisOwner = _db.Owners.FirstOrDefault(x => x.OwnerId == id);
       return View(thisOwner);
     }
     
-    [Authorize(Roles = "Administrator")]
+    [Authorize]
     [HttpPost]
     public ActionResult Edit(Owner owner)
     {

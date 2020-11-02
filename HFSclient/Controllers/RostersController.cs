@@ -21,13 +21,13 @@ namespace HFSclient.Controllers
       return View(model);
     }
 
-    [Authorize(Roles = "Administrator")]
+    [Authorize]
     public ActionResult Create()
     {
       return View();
     }
 
-    [Authorize(Roles = "Administrator")]
+    [Authorize]
     [HttpPost]
     public ActionResult Create(Roster roster)
     {
@@ -42,14 +42,14 @@ namespace HFSclient.Controllers
       return View(thisRoster);
     }
 
-    [Authorize(Roles = "Administrator")]
+    [Authorize]
     public ActionResult Edit(int id)
     {
       var thisRoster = _db.Rosters.FirstOrDefault(x => x.RosterId == id);
       return View(thisRoster);
     }
     
-    [Authorize(Roles = "Administrator")]
+    [Authorize]
     [HttpPost]
     public ActionResult Edit(Roster roster)
     {

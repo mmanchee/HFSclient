@@ -1,4 +1,4 @@
-namespace Library.ViewModels
+namespace HFSclient.ViewModels
 {
   public class LoginViewModel
   {

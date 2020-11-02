@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Library.ViewModels
+namespace HFSclient.ViewModels
 {
   public class RegisterViewModel
   {
