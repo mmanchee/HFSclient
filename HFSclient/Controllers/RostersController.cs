@@ -5,18 +5,31 @@ using HFSclient.Models;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace HFSclient.Controllers
 {
   public class RostersController : Controller
   {
     public readonly HFSclientContext _db;
-    public RostersController(HFSclientContext db)
+    private readonly UserManager<ApplicationUser> _userManager;
+    private readonly SignInManager<ApplicationUser> _signInManager;
+    public RostersController(HFSclientContext db, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
     {
       _db = db;
+      _userManager = userManager;
+      _signInManager = signInManager;
     }
-    public ActionResult Index()
+    public async Task<ActionResult> Index()
     {
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+
+      
+      List<Roster> roster = _db.Rosters.Where(x => x.OwnerId == )
+      query = query.
       List<Roster> model = _db.Rosters.ToList();
       return View(model);
     }
