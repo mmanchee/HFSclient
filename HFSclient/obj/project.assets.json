@@ -7732,12 +7732,11 @@
       ]
     },
     "runtime.native.System.Net.Http/4.3.0": {
-      "sha512": "ZVuZJqnnegJhd2k/PtAbbIcZ3aZeITq3sj06oKfMBSfphW3HDmk/t4ObvbOk/JA/swGR0LNqMksAh/f7gpTROg==",
+      "sha512": "guqHgQOK2eUgtJae2VKjNawBn1xjC0hfOt5wASHa60XHbIdCsQlqtvMsFG+3hy7yp88V+gi9fZCjubuDkeakcQ==",
       "type": "package",
       "path": "runtime.native.system.net.http/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/_._",
@@ -7798,12 +7797,11 @@
       ]
     },
     "runtime.osx.10.10-x64.runtime.native.System.Security.Cryptography.Apple/4.3.0": {
-      "sha512": "kVXCuMTrTlxq4XOOMAysuNwsXWpYeboGddNGpIgNSZmv1b6r/s/DPk0fYMB7Q5Qo4bY68o48jt4T4y5BVecbCQ==",
+      "sha512": "Kh9W4agE0r/hK8AX1LvyQI2NrKHBL8pO0gRoDTdDb0LL6Ta1Z2OtFx3lOaAE0ZpCUc/dt9Wzs3rA7a3IsKdOVA==",
       "type": "package",
       "path": "runtime.osx.10.10-x64.runtime.native.system.security.cryptography.apple/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.osx.10.10-x64.runtime.native.system.security.cryptography.apple.4.3.0.nupkg.sha512",
@@ -12516,60 +12514,27 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
-<<<<<<< HEAD
     "C:\\Users\\Danie\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-=======
-    "C:\\Users\\bnilles\\.nuget\\packages\\": {},
->>>>>>> mm/jnBranch
-=======
-    "C:\\Users\\Jeffrey\\.nuget\\packages\\": {},
->>>>>>> mm/league
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\Danie\\OneDrive\\Desktop\\HFSclient.Solutions\\HFSClient\\HFSclient.csproj",
+      "projectUniqueName": "C:\\Users\\Danie\\OneDrive\\Desktop\\HFSclient\\HFSClient\\HFSclient.csproj",
       "projectName": "HFSclient",
-      "projectPath": "C:\\Users\\Danie\\OneDrive\\Desktop\\HFSclient.Solutions\\HFSClient\\HFSclient.csproj",
+      "projectPath": "C:\\Users\\Danie\\OneDrive\\Desktop\\HFSclient\\HFSClient\\HFSclient.csproj",
       "packagesPath": "C:\\Users\\Danie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Danie\\OneDrive\\Desktop\\HFSclient.Solutions\\HFSClient\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\HFSclient.csproj",
-      "projectName": "HFSclient",
-      "projectPath": "C:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\HFSclient.csproj",
-      "packagesPath": "C:\\Users\\bnilles\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\obj\\",
->>>>>>> mm/jnBranch
-=======
-      "projectUniqueName": "C:\\users\\Jeffrey\\documents\\epicodus\\csharp\\hfsclient.solution\\hfsclient\\HFSclient.csproj",
-      "projectName": "HFSclient",
-      "projectPath": "C:\\users\\Jeffrey\\documents\\epicodus\\csharp\\hfsclient.solution\\hfsclient\\HFSclient.csproj",
-      "packagesPath": "C:\\Users\\Jeffrey\\.nuget\\packages\\",
-      "outputPath": "C:\\users\\Jeffrey\\documents\\epicodus\\csharp\\hfsclient.solution\\hfsclient\\obj\\",
->>>>>>> mm/league
+      "outputPath": "C:\\Users\\Danie\\OneDrive\\Desktop\\HFSclient\\HFSClient\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-<<<<<<< HEAD
-<<<<<<< HEAD
         "C:\\Users\\Danie\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
-=======
-        "C:\\Users\\bnilles\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
->>>>>>> mm/jnBranch
-=======
-        "C:\\Users\\Jeffrey\\AppData\\Roaming\\NuGet\\NuGet.Config"
->>>>>>> mm/league
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.2"
@@ -12636,11 +12601,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
-=======
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
->>>>>>> mm/jnBranch
       }
     }
   }

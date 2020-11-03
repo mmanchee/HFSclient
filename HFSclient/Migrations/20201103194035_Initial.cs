@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace HFSclient.Migrations
 {
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -58,6 +58,58 @@ namespace HFSclient.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Leagues", x => x.LeagueId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Schedules",
+                columns: table => new
+                {
+                    ScheduleId = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    GroupId1 = table.Column<int>(nullable: false),
+                    GroupId2 = table.Column<int>(nullable: false),
+                    Week = table.Column<int>(nullable: false),
+                    Team1Sore = table.Column<int>(nullable: false),
+                    Team2Sore = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Schedules", x => x.ScheduleId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Standings",
+                columns: table => new
+                {
+                    StandingId = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    GroupId = table.Column<int>(nullable: false),
+                    Wins = table.Column<int>(nullable: false),
+                    Ties = table.Column<int>(nullable: false),
+                    Losses = table.Column<int>(nullable: false),
+                    PtsFor = table.Column<int>(nullable: false),
+                    PtsAgst = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Standings", x => x.StandingId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Trackers",
+                columns: table => new
+                {
+                    TrackerId = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    GroupId = table.Column<int>(nullable: false),
+                    GameId = table.Column<int>(nullable: false),
+                    ScheduleId = table.Column<int>(nullable: false),
+                    Position = table.Column<string>(nullable: true),
+                    Points = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Trackers", x => x.TrackerId);
                 });
 
             migrationBuilder.CreateTable(
@@ -167,61 +219,6 @@ namespace HFSclient.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Schedules",
-                columns: table => new
-                {
-                    ScheduleId = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    User1Id = table.Column<string>(nullable: true),
-                    User2Id = table.Column<string>(nullable: true),
-                    GroupId = table.Column<int>(nullable: false),
-                    Week = table.Column<int>(nullable: false),
-                    Winner = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Schedules", x => x.ScheduleId);
-                    table.ForeignKey(
-                        name: "FK_Schedules_AspNetUsers_User1Id",
-                        column: x => x.User1Id,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Schedules_AspNetUsers_User2Id",
-                        column: x => x.User2Id,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Trackers",
-                columns: table => new
-                {
-                    TrackerId = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    UserId = table.Column<string>(nullable: true),
-                    GroupWeek = table.Column<int>(nullable: false),
-                    GroupId = table.Column<int>(nullable: false),
-                    PlayerId = table.Column<int>(nullable: false),
-                    Position = table.Column<string>(nullable: true),
-                    GameWeek = table.Column<int>(nullable: false),
-                    GameSeason = table.Column<int>(nullable: false),
-                    Points = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Trackers", x => x.TrackerId);
-                    table.ForeignKey(
-                        name: "FK_Trackers_AspNetUsers_UserId",
-                        column: x => x.UserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Groups",
                 columns: table => new
                 {
@@ -295,21 +292,6 @@ namespace HFSclient.Migrations
                 name: "IX_Groups_UserId",
                 table: "Groups",
                 column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Schedules_User1Id",
-                table: "Schedules",
-                column: "User1Id");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Schedules_User2Id",
-                table: "Schedules",
-                column: "User2Id");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Trackers_UserId",
-                table: "Trackers",
-                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -334,6 +316,9 @@ namespace HFSclient.Migrations
 
             migrationBuilder.DropTable(
                 name: "Schedules");
+
+            migrationBuilder.DropTable(
+                name: "Standings");
 
             migrationBuilder.DropTable(
                 name: "Trackers");

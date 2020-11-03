@@ -1,63 +1,26 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "C:\\Users\\Danie\\OneDrive\\Desktop\\HFSclient.Solutions\\HFSClient\\HFSclient.csproj": {}
+    "C:\\Users\\Danie\\OneDrive\\Desktop\\HFSclient\\hfsclient\\HFSclient.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Danie\\OneDrive\\Desktop\\HFSclient.Solutions\\HFSClient\\HFSclient.csproj": {
+    "C:\\Users\\Danie\\OneDrive\\Desktop\\HFSclient\\hfsclient\\HFSclient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Danie\\OneDrive\\Desktop\\HFSclient.Solutions\\HFSClient\\HFSclient.csproj",
+        "projectUniqueName": "C:\\Users\\Danie\\OneDrive\\Desktop\\HFSclient\\hfsclient\\HFSclient.csproj",
         "projectName": "HFSclient",
-        "projectPath": "C:\\Users\\Danie\\OneDrive\\Desktop\\HFSclient.Solutions\\HFSClient\\HFSclient.csproj",
+        "projectPath": "C:\\Users\\Danie\\OneDrive\\Desktop\\HFSclient\\hfsclient\\HFSclient.csproj",
         "packagesPath": "C:\\Users\\Danie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Danie\\OneDrive\\Desktop\\HFSclient.Solutions\\HFSClient\\obj\\",
-=======
-    "C:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\HFSclient.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\HFSclient.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\HFSclient.csproj",
-        "projectName": "HFSclient",
-        "projectPath": "C:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\HFSclient.csproj",
-        "packagesPath": "C:\\Users\\bnilles\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\obj\\",
->>>>>>> mm/jnBranch
-=======
-    "C:\\users\\Jeffrey\\documents\\epicodus\\csharp\\hfsclient.solution\\hfsclient\\HFSclient.csproj": {}
-  },
-  "projects": {
-    "C:\\users\\Jeffrey\\documents\\epicodus\\csharp\\hfsclient.solution\\hfsclient\\HFSclient.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\users\\Jeffrey\\documents\\epicodus\\csharp\\hfsclient.solution\\hfsclient\\HFSclient.csproj",
-        "projectName": "HFSclient",
-        "projectPath": "C:\\users\\Jeffrey\\documents\\epicodus\\csharp\\hfsclient.solution\\hfsclient\\HFSclient.csproj",
-        "packagesPath": "C:\\Users\\Jeffrey\\.nuget\\packages\\",
-        "outputPath": "C:\\users\\Jeffrey\\documents\\epicodus\\csharp\\hfsclient.solution\\hfsclient\\obj\\",
->>>>>>> mm/league
+        "outputPath": "C:\\Users\\Danie\\OneDrive\\Desktop\\HFSclient\\hfsclient\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-<<<<<<< HEAD
-<<<<<<< HEAD
           "C:\\Users\\Danie\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
-=======
-          "C:\\Users\\bnilles\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
->>>>>>> mm/jnBranch
-=======
-          "C:\\Users\\Jeffrey\\AppData\\Roaming\\NuGet\\NuGet.Config"
->>>>>>> mm/league
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.2"
@@ -124,11 +87,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
-=======
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
->>>>>>> mm/jnBranch
         }
       }
     }
