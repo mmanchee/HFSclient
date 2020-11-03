@@ -8,7 +8,12 @@
 <h5><strong>@Html.DisplayName("Name"):</strong> @Html.DisplayFor(model => model.LeagueName)</h5>
 <br>
 
+<h5>Players in this League:</h5>
 
+<br>
+<p>@Html.ActionLink("Edit League", "Edit", new { id = Model.LeagueId }, new {@class="btn btn-success btn-sm"})</p>
+
+<p>@Html.ActionLink("See All Leagues", "Index", null, null, new {@class="btn btn-info btn-sm"})</p>
 @* League
 Current Players
 User clicks on themselves -> Roster

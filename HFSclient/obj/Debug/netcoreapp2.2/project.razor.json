@@ -1947,6 +1947,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\HFSclient\\Views\\Leagues\\Join.cshtml",
+      "TargetPath": "Views\\Leagues\\Join.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\HFSclient\\Views\\Account\\Index.cshtml",
       "TargetPath": "Views\\Account\\Index.cshtml",
       "FileKind": "mvc"

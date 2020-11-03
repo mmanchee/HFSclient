@@ -59,10 +59,16 @@ namespace HFSclient.Controllers
       return RedirectToAction("Details", new { id = league.LeagueId});
     }
     [HttpPost]
-    public ActionResult Search(string leagueName)
+    public ActionResult Index(string Name)
     {
-      List<League> model = _db.Leagues.Where(x => x.LeagueName.Contains(leagueName)).ToList();
+      List<League> model = _db.Leagues.Where(x => x.LeagueName.Contains(Name)).ToList();
       return View("Index", model);
-    }    
+    }
+
+    public ActionResult Join(int id)
+    {
+      var thisLeague = _db.Leagues.FirstOrDefault(x => x.LeagueId == id);
+      return View(thisLeague);
+    }
   }
 }

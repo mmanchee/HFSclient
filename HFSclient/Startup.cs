@@ -68,7 +68,6 @@ namespace HFSclient
         app.UseHsts();
         
       }
-      app.UseAuthentication();
       // app.UseHttpsRedirection();
       app.UseStaticFiles();
       app.UseAuthentication();
