@@ -9,6 +9,7 @@ namespace HFSclient.Models
     public DbSet<League> Leagues { get; set; }
     public DbSet<Tracker> Trackers { get; set; }
     public DbSet<Schedule> Schedules { get; set; }
+    public DbSet<Standing> Standings { get; set; }
     public HFSclientContext(DbContextOptions options) : base(options) { }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

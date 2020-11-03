@@ -21,13 +21,13 @@ namespace HFSclient.Controllers
       return View(model);
     }
 
-    [Authorize(Roles = "Administrator")]
+    // [Authorize(Roles = "Administrator")]
     public ActionResult Create()
     {
       return View();
     }
 
-    [Authorize(Roles = "Administrator")]
+    // [Authorize(Roles = "Administrator")]
     [HttpPost]
     public ActionResult Create(League league)
     {
@@ -38,18 +38,19 @@ namespace HFSclient.Controllers
     public ActionResult Details(int id)
     {
       var thisLeague = _db.Leagues
+        .Include(league => league.Groups)
         .FirstOrDefault(league => league.LeagueId == id);
       return View(thisLeague);
     }
 
-    [Authorize(Roles = "Administrator")]
+    // [Authorize(Roles = "Administrator")]
     public ActionResult Edit(int id)
     {
       var thisLeague = _db.Leagues.FirstOrDefault(x => x.LeagueId == id);
       return View(thisLeague);
     }
     
-    [Authorize(Roles = "Administrator")]
+    // [Authorize(Roles = "Administrator")]
     [HttpPost]
     public ActionResult Edit(League league)
     {

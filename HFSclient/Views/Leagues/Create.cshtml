@@ -1,2 +1,27 @@
-Create League
-auto assign user as commissioner
+@{
+  Layout = "_Layout";
+}
+
+@model HFSclient.Models.League;
+
+<h4>Add a new League</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.Label("League Name:")
+  <br>
+  @Html.TextBoxFor(model => model.LeagueName, new {@required="required"})
+  <br><br>
+  <input type="submit" value="Add New League" class="btn btn-success btn-sm" />
+}
+<br>
+<p>@Html.ActionLink("Cancel", "Index", null, null, new {@class="btn btn-primary btn-sm"})</p>
+
+
+
+
+
+
+
+@* Create League
+auto assign user as commissioner *@

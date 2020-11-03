@@ -1,5 +1,16 @@
-League
+@{
+  Layout = "_Layout";
+}
+@model HFSclient.Models.League;
+<h1>League details</h1>
+<br>
+
+<h5><strong>@Html.DisplayName("Name"):</strong> @Html.DisplayFor(model => model.LeagueName)</h5>
+<br>
+
+
+@* League
 Current Players
 User clicks on themselves -> Roster
 History
-Button View Standings
+Button View Standings *@

@@ -83,10 +83,12 @@ namespace HFSclient
         app.UseExceptionHandler("/Home/Error");
         // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
         app.UseHsts();
+        
       }
       app.UseAuthentication();
       // app.UseHttpsRedirection();
       app.UseStaticFiles();
+      app.UseAuthentication();
       app.UseCookiePolicy();
 
       app.UseMvc(routes =>
@@ -94,6 +96,10 @@ namespace HFSclient
         routes.MapRoute(
           name: "default",
           template: "{controller=Home}/{action=Index}/{id?}");
+      });
+      app.Run(async (context) =>
+      {
+        await context.Response.WriteAsync("Something went wrong!");
       });
     }
   }

@@ -2,6 +2,7 @@
   "format": 1,
   "restore": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "C:\\Users\\Danie\\OneDrive\\Desktop\\HFSclient.Solutions\\HFSClient\\HFSclient.csproj": {}
   },
   "projects": {
@@ -26,12 +27,26 @@
         "packagesPath": "C:\\Users\\bnilles\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\obj\\",
 >>>>>>> mm/jnBranch
+=======
+    "C:\\users\\Jeffrey\\documents\\epicodus\\csharp\\hfsclient.solution\\hfsclient\\HFSclient.csproj": {}
+  },
+  "projects": {
+    "C:\\users\\Jeffrey\\documents\\epicodus\\csharp\\hfsclient.solution\\hfsclient\\HFSclient.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\users\\Jeffrey\\documents\\epicodus\\csharp\\hfsclient.solution\\hfsclient\\HFSclient.csproj",
+        "projectName": "HFSclient",
+        "projectPath": "C:\\users\\Jeffrey\\documents\\epicodus\\csharp\\hfsclient.solution\\hfsclient\\HFSclient.csproj",
+        "packagesPath": "C:\\Users\\Jeffrey\\.nuget\\packages\\",
+        "outputPath": "C:\\users\\Jeffrey\\documents\\epicodus\\csharp\\hfsclient.solution\\hfsclient\\obj\\",
+>>>>>>> mm/league
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
 <<<<<<< HEAD
           "C:\\Users\\Danie\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
@@ -40,6 +55,9 @@
           "C:\\Users\\bnilles\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
 >>>>>>> mm/jnBranch
+=======
+          "C:\\Users\\Jeffrey\\AppData\\Roaming\\NuGet\\NuGet.Config"
+>>>>>>> mm/league
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.2"
