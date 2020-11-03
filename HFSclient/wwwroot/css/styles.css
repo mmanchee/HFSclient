@@ -1,0 +1,9 @@
+div#header {
+  height: 60px;
+  margin-left: 130px;
+}
+
+li {
+  list-style-type: none;
+  margin-left: 20px;
+}
