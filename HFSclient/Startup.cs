@@ -34,11 +34,6 @@ namespace HFSclient
         options.MinimumSameSitePolicy = SameSiteMode.None;
       });
       
-<<<<<<< HEAD
-=======
-
-
->>>>>>> mm/jnBranch
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
       services.AddEntityFrameworkMySql()
         .AddDbContext<HFSclientContext>(options => options

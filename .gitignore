@@ -1,12 +1,5 @@
-<<<<<<< HEAD
 */obj/
 */bin/
 .vscode
 EnvironmentVariables.cs
-=======
-obj/
-bin/
-.vscode
-EnvironmentVariables.cs
-migrations/
->>>>>>> mm/jnBranch
+*/Migrations/
