@@ -1,28 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\hfsclient\\HFSclient.csproj": {}
+    "C:\\Users\\Danie\\OneDrive\\Desktop\\HFSclient.Solutions\\HFSClient\\HFSclient.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\hfsclient\\HFSclient.csproj": {
+    "C:\\Users\\Danie\\OneDrive\\Desktop\\HFSclient.Solutions\\HFSClient\\HFSclient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\hfsclient\\HFSclient.csproj",
+        "projectUniqueName": "C:\\Users\\Danie\\OneDrive\\Desktop\\HFSclient.Solutions\\HFSClient\\HFSclient.csproj",
         "projectName": "HFSclient",
-        "projectPath": "C:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\hfsclient\\HFSclient.csproj",
-        "packagesPath": "C:\\Users\\mikem\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\hfsclient\\obj\\",
+        "projectPath": "C:\\Users\\Danie\\OneDrive\\Desktop\\HFSclient.Solutions\\HFSClient\\HFSclient.csproj",
+        "packagesPath": "C:\\Users\\Danie\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Danie\\OneDrive\\Desktop\\HFSclient.Solutions\\HFSClient\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\mikem\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Danie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.2"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -74,10 +78,16 @@
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
