@@ -3,10 +3,10 @@ using HFSclient.Models;
 
 namespace HFSclient.ViewModels
 {
-    public class ManageUsersViewModel
-    {
-        public ApplicationUser[] Administrators { get; set; }
+  public class ManageUsersViewModel
+  {
+    public ApplicationUser[] Administrators { get; set; }
 
-        public ApplicationUser[] Everyone { get; set;}
-    }
+    public ApplicationUser[] Everyone { get; set; }
+  }
 }

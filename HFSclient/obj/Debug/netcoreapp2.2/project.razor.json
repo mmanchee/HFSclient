@@ -1882,6 +1882,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\HFSclient\\Views\\Schedules\\Standings.cshtml",
+      "TargetPath": "Views\\Schedules\\Standings.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\HFSclient\\Views\\Account\\Login.cshtml",
       "TargetPath": "Views\\Account\\Login.cshtml",
       "FileKind": "mvc"
