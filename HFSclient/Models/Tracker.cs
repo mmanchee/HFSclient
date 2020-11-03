@@ -1,8 +1,8 @@
 namespace HFSclient.Models
 {
-  public class Week
+  public class Tracker
   {
-    public int WeekId { get; set; }
+    public int TrackerId { get; set; }
     public virtual ApplicationUser User { get; set; }
     public int GroupWeek { get; set; }
     public int GroupId { get; set; }

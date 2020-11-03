@@ -1,0 +1,24 @@
+@{
+  Layout = "_Layout";
+}
+@using HFSclient.ViewModels
+@model RegisterViewModel
+
+<h2>Register a new user</h2>
+<hr />
+@using (Html.BeginForm("Register", "Account", FormMethod.Post))
+{
+  @Html.Label("Username")
+  @Html.TextBoxFor(user=> user.UserName)
+  
+  @Html.Label("Email")
+  @Html.TextBoxFor(user=> user.Email)
+
+  @Html.Label("Password")
+  @Html.PasswordFor(user=> user.Password)
+
+  @Html.Label("Confirm Password")
+  @Html.PasswordFor(user=> user.ConfirmPassword)
+
+  <input type="submit" value="Register" />
+}

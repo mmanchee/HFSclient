@@ -8,16 +8,16 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace HFSclient.Controllers
 {
-  public class WeeksController : Controller
+  public class TrackersController : Controller
   {
     public readonly HFSclientContext _db;
-    public WeeksController(HFSclientContext db)
+    public TrackersController(HFSclientContext db)
     {
       _db = db;
     }
     public ActionResult Index()
     {
-      List<Week> model = _db.Weeks.ToList();
+      List<Tracker> model = _db.Trackers.ToList();
       return View(model);
     }
 
@@ -29,34 +29,34 @@ namespace HFSclient.Controllers
 
     [Authorize(Roles = "Administrator")]
     [HttpPost]
-    public ActionResult Create(Week week)
+    public ActionResult Create(Tracker Tracker)
     {
-      _db.Weeks.Add(week);
+      _db.Trackers.Add(Tracker);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
     public ActionResult Details(int id)
     {
-      var thisWeek = _db.Weeks
-        .Include(owner => owner.WeekId)
-        .FirstOrDefault(week => week.WeekId == id);
-      return View(thisWeek);
+      var thisTracker = _db.Trackers
+        .Include(owner => owner.TrackerId)
+        .FirstOrDefault(Tracker => Tracker.TrackerId == id);
+      return View(thisTracker);
     }
 
     [Authorize(Roles = "Administrator")]
     public ActionResult Edit(int id)
     {
-      var thisWeek = _db.Weeks.FirstOrDefault(x => x.WeekId == id);
-      return View(thisWeek);
+      var thisTracker = _db.Trackers.FirstOrDefault(x => x.TrackerId == id);
+      return View(thisTracker);
     }
     
     [Authorize(Roles = "Administrator")]
     [HttpPost]
-    public ActionResult Edit(Week week)
+    public ActionResult Edit(Tracker Tracker)
     {
-      _db.Entry(week).State = EntityState.Modified;
+      _db.Entry(Tracker).State = EntityState.Modified;
       _db.SaveChanges();
-      return RedirectToAction("Details", new { id = week.WeekId});
+      return RedirectToAction("Details", new { id = Tracker.TrackerId});
     }
   }
 }
