@@ -2,3 +2,5 @@ obj/
 bin/
 .vscode
 EnvironmentVariables.cs
+*/obj/
+*/bin/
