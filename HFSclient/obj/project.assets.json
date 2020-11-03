@@ -12514,27 +12514,44 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\Danie\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+=======
+    "C:\\Users\\bnilles\\.nuget\\packages\\": {},
+>>>>>>> mm/jnBranch
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Danie\\OneDrive\\Desktop\\HFSclient.Solutions\\HFSClient\\HFSclient.csproj",
       "projectName": "HFSclient",
       "projectPath": "C:\\Users\\Danie\\OneDrive\\Desktop\\HFSclient.Solutions\\HFSClient\\HFSclient.csproj",
       "packagesPath": "C:\\Users\\Danie\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Danie\\OneDrive\\Desktop\\HFSclient.Solutions\\HFSClient\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\HFSclient.csproj",
+      "projectName": "HFSclient",
+      "projectPath": "C:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\HFSclient.csproj",
+      "packagesPath": "C:\\Users\\bnilles\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\obj\\",
+>>>>>>> mm/jnBranch
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
+<<<<<<< HEAD
         "C:\\Users\\Danie\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+=======
+        "C:\\Users\\bnilles\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+>>>>>>> mm/jnBranch
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.2"
@@ -12601,7 +12618,11 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+=======
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+>>>>>>> mm/jnBranch
       }
     }
   }
