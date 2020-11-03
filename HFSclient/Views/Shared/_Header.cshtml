@@ -1,9 +1,27 @@
+@using Microsoft.AspNetCore.Identity
+@using Library.Models
+
+@inject SignInManager<ApplicationUser> signInManager
+@inject UserManager<ApplicationUser> userManager
+
 <div id="header">
   <div id="header-image"></div>
     <img src="img/HFSlogo.jpg" alt="HFS Logo">
   </div>  
   <div>
-    @User.Identity.Name
-
+    @if (User.Identity.IsAuthenticated)
+    {
+      <div class="userinfo">
+        @User.Identity.Name
+        @Html.ActionLink("Log Off", "Index","Account", null, new { @class = "btn btn-info"})
+      </div>
+    }
+    else
+    {
+      <div class="userinfo">
+        @Html.ActionLink(" Log in", "Login", "Account", null, new { @class = "btn btn-info" })
+        @Html.ActionLink(" Register", "Login", Account, null, new { @class = "btn btn-info" })
+      </div>
+    }
   </div>
 </div>
