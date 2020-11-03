@@ -1,9 +1,41 @@
-div#header {
-  height: 60px;
-  margin-left: 130px;
+/* _Header */
+#header {
+  text-align: center;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  background: #dddddd;
+}
+#header-image {
+  width: 150px;
+  float: left;
+  margin: 2%;
+}
+#header-plack {
+  margin: 2%;
+  float: right;
 }
 
-li {
-  list-style-type: none;
-  margin-left: 20px;
+/* _Layout */
+#render {
+  font-size: 25px;
+  margin-top: 200px;
+}
+
+/* _Footer */
+#footer {
+  text-align: center;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  color: #CCC;
+  background: rgb(49, 49, 49);
+  padding: 8px;
+}
+
+/* Home Index */
+.splash {
+  text-align: center;
 }

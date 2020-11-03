@@ -1,14 +1,12 @@
-@using Microsoft.AspNetCore.Identity
-@using Library.Models
+@using Microsoft.AspNetCore.Identity;
+@using HFSclient.Models
 
 @inject SignInManager<ApplicationUser> signInManager
 @inject UserManager<ApplicationUser> userManager
 
 <div id="header">
-  <div id="header-image"></div>
-    <img src="img/HFSlogo.jpg" alt="HFS Logo">
-  </div>  
-  <div>
+  <img id="header-image" src="img/HFSlogo.jpg" alt="HFS Logo">
+  <div id="header-plack">
     @if (User.Identity.IsAuthenticated)
     {
       <div class="userinfo">
@@ -20,7 +18,7 @@
     {
       <div class="userinfo">
         @Html.ActionLink(" Log in", "Login", "Account", null, new { @class = "btn btn-info" })
-        @Html.ActionLink(" Register", "Login", Account, null, new { @class = "btn btn-info" })
+        @Html.ActionLink(" Register", "Register", "Account", null, new { @class = "btn btn-info" })
       </div>
     }
   </div>

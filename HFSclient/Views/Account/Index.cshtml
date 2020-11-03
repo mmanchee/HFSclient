@@ -5,8 +5,8 @@ Button Join a League *@
   Layout = "_Layout";
 }
 
+@using HFSclient.Models
 @using HFSclient.ViewModels
-@model LoginViewModel
 
 <p>Leagues</p>
 <hr />
@@ -14,9 +14,9 @@ Button Join a League *@
 {
   foreach(var league in Model)
   {
-    @Html.ActionLink(league.League.Name, Detalis, Leagues, null, new { @class = "btn btn-info" })
+    @Html.ActionLink($"{league.League.Name}", "Detalis", "Leagues", null, new { @class = "btn btn-info" })
   }
 }
 <hr />
-@Html.ActionLink("Join League", Index, League, null, new { @class = "btn btn-info"})
+@Html.ActionLink("Join League", "Index", "League", null, new { @class = "btn btn-info"})
 

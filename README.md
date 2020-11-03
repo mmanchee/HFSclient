@@ -71,6 +71,11 @@ Main Programs
 Copyright (c) 2020 **_{Mike Manchee}_**
 Licensed under MIT
 
+Co-authored-by: Joseph Nilles <jbnilles24@gmail.com>
+Co-authored-by: Jeff Dinsmore <hello@jeffdinsmore.com>
+Co-authored-by: Daniel Schaaf <daniel.schaaf@outlook.com>
+Co-authored-by: Mike Manchee <mikemanchee@gmail.com>
+
 Merge Branches
 type "git fetch mm" mm = to origin
 all branches will be pulled down
