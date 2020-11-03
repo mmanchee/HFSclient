@@ -7,3 +7,9 @@ li {
   list-style-type: none;
   margin-left: 20px;
 }
+
+#logout { 
+  float: right;
+  margin: 16px 130px 0px 0px;
+
+}

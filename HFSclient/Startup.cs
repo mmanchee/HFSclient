@@ -33,24 +33,7 @@ namespace HFSclient
         options.CheckConsentNeeded = context => true;
         options.MinimumSameSitePolicy = SameSiteMode.None;
       });
-      services.AddEntityFrameworkMySql()
-            .AddDbContext<HFSclientContext>(options => options  //change here
-            .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
-      services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<HFSclientContext>()
-                .AddDefaultTokenProviders();
-
-            services.Configure<IdentityOptions>(options =>
-            {
-                options.Password.RequireDigit = false;
-                options.Password.RequiredLength = 0;
-                options.Password.RequireLowercase = false;
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireUppercase = false;
-                options.Password.RequiredUniqueChars = 0;
-            });
-
-
+    
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
       services.AddEntityFrameworkMySql()
         .AddDbContext<HFSclientContext>(options => options
@@ -85,7 +68,6 @@ namespace HFSclient
         app.UseHsts();
         
       }
-      app.UseAuthentication();
       // app.UseHttpsRedirection();
       app.UseStaticFiles();
       app.UseAuthentication();

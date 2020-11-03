@@ -4,7 +4,7 @@
 @using HFSclient.Models;
 
 <h3>Current Leagues</h3>
-
+<p>Hello @User.Identity.Name </p>
 @if (@Model.Count == 0)
 {
   <p>There are no Leauges in this list.</p>
@@ -16,6 +16,7 @@
 <br>
 
 <p>@Html.ActionLink("Add New League", "Create", null, null, new {@class="btn btn-success btn-sm"})</p>
+@* <p>@Html.ActionLink("Join a League", "Join", new { id = Model.LeagueId}, new {@class="btn btn-success btn-sm"})</p> *@
 
 
 

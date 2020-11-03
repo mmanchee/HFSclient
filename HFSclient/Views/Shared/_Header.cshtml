@@ -1,4 +1,15 @@
 <div id="header">
-
-<p>Hello @User.Identity.Name!</p>
+  <div id="logout">
+    @if (User.Identity.IsAuthenticated)
+    {
+      @using (Html.BeginForm("LogOff", "Account"))
+      {
+        <p><input type="submit" value="Log out" class="btn btn-outline-secondary btn-sm" /></p>
+      }
+    }
+    else
+    {
+      <p>@Html.ActionLink("Log in", "Login", "Account", null, new { @class="btn btn-primary btn-sm"})</p>
+    }
+  </div>
 </div>

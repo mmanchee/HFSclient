@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HFSclient.Migrations
 {
     [DbContext(typeof(HFSclientContext))]
-    [Migration("20201103164905_initial")]
-    partial class initial
+    [Migration("20201103195706_second")]
+    partial class second
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -108,23 +108,41 @@ namespace HFSclient.Migrations
                     b.Property<int>("ScheduleId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("GroupId");
+                    b.Property<int>("GroupId1");
 
-                    b.Property<string>("User1Id");
+                    b.Property<int>("GroupId2");
 
-                    b.Property<string>("User2Id");
+                    b.Property<int>("Team1Sore");
+
+                    b.Property<int>("Team2Sore");
 
                     b.Property<int>("Week");
 
-                    b.Property<int>("Winner");
-
                     b.HasKey("ScheduleId");
 
-                    b.HasIndex("User1Id");
-
-                    b.HasIndex("User2Id");
-
                     b.ToTable("Schedules");
+                });
+
+            modelBuilder.Entity("HFSclient.Models.Standing", b =>
+                {
+                    b.Property<int>("StandingId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("GroupId");
+
+                    b.Property<int>("Losses");
+
+                    b.Property<int>("PtsAgst");
+
+                    b.Property<int>("PtsFor");
+
+                    b.Property<int>("Ties");
+
+                    b.Property<int>("Wins");
+
+                    b.HasKey("StandingId");
+
+                    b.ToTable("Standings");
                 });
 
             modelBuilder.Entity("HFSclient.Models.Tracker", b =>
@@ -132,25 +150,17 @@ namespace HFSclient.Migrations
                     b.Property<int>("TrackerId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("GameSeason");
-
-                    b.Property<int>("GameWeek");
+                    b.Property<int>("GameId");
 
                     b.Property<int>("GroupId");
-
-                    b.Property<int>("GroupWeek");
-
-                    b.Property<int>("PlayerId");
 
                     b.Property<int>("Points");
 
                     b.Property<string>("Position");
 
-                    b.Property<string>("UserId");
+                    b.Property<int>("ScheduleId");
 
                     b.HasKey("TrackerId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Trackers");
                 });
@@ -269,24 +279,6 @@ namespace HFSclient.Migrations
                         .HasForeignKey("LeagueId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("HFSclient.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("HFSclient.Models.Schedule", b =>
-                {
-                    b.HasOne("HFSclient.Models.ApplicationUser", "User1")
-                        .WithMany()
-                        .HasForeignKey("User1Id");
-
-                    b.HasOne("HFSclient.Models.ApplicationUser", "User2")
-                        .WithMany()
-                        .HasForeignKey("User2Id");
-                });
-
-            modelBuilder.Entity("HFSclient.Models.Tracker", b =>
-                {
                     b.HasOne("HFSclient.Models.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId");

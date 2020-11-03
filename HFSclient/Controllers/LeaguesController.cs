@@ -63,6 +63,12 @@ namespace HFSclient.Controllers
     {
       List<League> model = _db.Leagues.Where(x => x.LeagueName.Contains(leagueName)).ToList();
       return View("Index", model);
-    }    
+    }
+
+    public ActionResult Join(int id)
+    {
+      var thisLeague = _db.Leagues.FirstOrDefault(x => x.LeagueId == id);
+      return View(thisLeague);
+    }
   }
 }
