@@ -1,3 +1,22 @@
-Front Page after Login
+@* Front Page after Login
 View all current Leagues
-Button Join a League
+Button Join a League *@
+@{
+  Layout = "_Layout";
+}
+
+@using HFSclient.ViewModels
+@model LoginViewModel
+
+<p>Leagues</p>
+<hr />
+@if (@Model.Any())
+{
+  foreach(var league in Model)
+  {
+    @Html.ActionLink(league.League.Name, Detalis, Leagues, null, new { @class = "btn btn-info" })
+  }
+}
+<hr />
+@Html.ActionLink("Join League", Index, League, null, new { @class = "btn btn-info"})
+

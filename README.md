@@ -70,3 +70,10 @@ Main Programs
 
 Copyright (c) 2020 **_{Mike Manchee}_**
 Licensed under MIT
+
+Merge Branches
+type "git fetch mm" mm = to origin
+all branches will be pulled down
+type "git merge mm/branch" branch = the branch
+correct conflicts
+add and commit changes
