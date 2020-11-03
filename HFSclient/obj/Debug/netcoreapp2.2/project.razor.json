@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\HFSclient\\HFSclient.csproj",
+  "FilePath": "c:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\HFSclient.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-2.1",
     "LanguageVersion": "2.1",
@@ -1872,93 +1872,88 @@
   "RootNamespace": "HFSclient",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\HFSclient\\Views\\Leagues\\Details.cshtml",
-      "TargetPath": "Views\\Leagues\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\HFSclient\\Views\\Trackers\\Roster.cshtml",
-      "TargetPath": "Views\\Trackers\\Roster.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\HFSclient\\Views\\Schedules\\Standings.cshtml",
-      "TargetPath": "Views\\Schedules\\Standings.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\HFSclient\\Views\\Account\\Login.cshtml",
-      "TargetPath": "Views\\Account\\Login.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\HFSclient\\Views\\Home\\Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\HFSclient\\Views\\Standings\\Index.cshtml",
-      "TargetPath": "Views\\Standings\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\HFSclient\\Views\\Schedules\\Details.cshtml",
-      "TargetPath": "Views\\Schedules\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\HFSclient\\Views\\Account\\Register.cshtml",
-      "TargetPath": "Views\\Account\\Register.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\HFSclient\\Views\\Schedules\\Index.cshtml",
-      "TargetPath": "Views\\Schedules\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\HFSclient\\Views\\Leagues\\Index.cshtml",
-      "TargetPath": "Views\\Leagues\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\HFSclient\\Views\\Shared\\_Layout.cshtml",
-      "TargetPath": "Views\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\HFSclient\\Views\\Trackers\\Draft.cshtml",
-      "TargetPath": "Views\\Trackers\\Draft.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\HFSclient\\Views\\Trackers\\Game.cshtml",
-      "TargetPath": "Views\\Trackers\\Game.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\HFSclient\\Views\\Leagues\\Edit.cshtml",
+      "FilePath": "c:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\Views\\Leagues\\Edit.cshtml",
       "TargetPath": "Views\\Leagues\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\HFSclient\\Views\\Leagues\\Create.cshtml",
-      "TargetPath": "Views\\Leagues\\Create.cshtml",
+      "FilePath": "c:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\Views\\Account\\Register.cshtml",
+      "TargetPath": "Views\\Account\\Register.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\HFSclient\\Views\\Account\\Index.cshtml",
-      "TargetPath": "Views\\Account\\Index.cshtml",
+      "FilePath": "c:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\Views\\Leagues\\Details.cshtml",
+      "TargetPath": "Views\\Leagues\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\HFSclient\\Views\\Shared\\_Header.cshtml",
+      "FilePath": "c:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\Views\\Leagues\\Index.cshtml",
+      "TargetPath": "Views\\Leagues\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\Views\\Trackers\\Draft.cshtml",
+      "TargetPath": "Views\\Trackers\\Draft.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\Views\\Schedules\\Details.cshtml",
+      "TargetPath": "Views\\Schedules\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\Views\\Shared\\_Header.cshtml",
       "TargetPath": "Views\\Shared\\_Header.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\HFSclient\\Views\\Trackers\\Details.cshtml",
+      "FilePath": "c:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\Views\\Account\\Login.cshtml",
+      "TargetPath": "Views\\Account\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\Views\\Schedules\\Index.cshtml",
+      "TargetPath": "Views\\Schedules\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\Views\\Standings\\Index.cshtml",
+      "TargetPath": "Views\\Standings\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\Views\\Shared\\_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\Views\\Trackers\\Roster.cshtml",
+      "TargetPath": "Views\\Trackers\\Roster.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\Views\\Trackers\\Game.cshtml",
+      "TargetPath": "Views\\Trackers\\Game.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\Views\\Account\\Index.cshtml",
+      "TargetPath": "Views\\Account\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\Views\\Trackers\\Details.cshtml",
       "TargetPath": "Views\\Trackers\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\Views\\Leagues\\Create.cshtml",
+      "TargetPath": "Views\\Leagues\\Create.cshtml",
       "FileKind": "mvc"
     }
   ],

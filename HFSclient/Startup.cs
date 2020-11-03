@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Identity;
+using HFSclient.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace HFSclient
 {
@@ -30,6 +33,22 @@ namespace HFSclient
         options.CheckConsentNeeded = context => true;
         options.MinimumSameSitePolicy = SameSiteMode.None;
       });
+      services.AddEntityFrameworkMySql()
+            .AddDbContext<HFSclientContext>(options => options  //change here
+            .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
+      services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<HFSclientContext>()
+                .AddDefaultTokenProviders();
+
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireDigit = false;
+                options.Password.RequiredLength = 0;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredUniqueChars = 0;
+            });
 
 
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -48,7 +67,7 @@ namespace HFSclient
         // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
         app.UseHsts();
       }
-
+      app.UseAuthentication();
       // app.UseHttpsRedirection();
       app.UseStaticFiles();
       app.UseCookiePolicy();

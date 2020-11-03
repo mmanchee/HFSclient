@@ -12514,28 +12514,30 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mikem\\.nuget\\packages\\": {},
+    "C:\\Users\\bnilles\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\hfsclient\\HFSclient.csproj",
+      "projectUniqueName": "C:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\HFSclient.csproj",
       "projectName": "HFSclient",
-      "projectPath": "C:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\hfsclient\\HFSclient.csproj",
-      "packagesPath": "C:\\Users\\mikem\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mikem\\Desktop\\coding-practice\\HFSclient.Solution\\hfsclient\\obj\\",
+      "projectPath": "C:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\HFSclient.csproj",
+      "packagesPath": "C:\\Users\\bnilles\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\bnilles\\Desktop\\TeamWeekC#\\HFSclient\\HFSclient\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\mikem\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\bnilles\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.2"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -12587,10 +12589,16 @@
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
