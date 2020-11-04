@@ -68,7 +68,7 @@ namespace HFSclient.Controllers
         ViewBag.err = "Login not excepted";
         return View();
       }
-    }
+    }    
     public async Task<ActionResult> LogOut()
     {
       await _signInManager.SignOutAsync();
