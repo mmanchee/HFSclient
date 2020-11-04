@@ -21,13 +21,12 @@ else
     <td align="right" width="15%">Wins</td>
     <td align="right" width="15%">Losses</td>
     <td align="right" width="15%">PCT</td>
-    <td align="right" width="15%">CONF</td>
     <td align="right" width="15%">GB</td>
     <td align="right" width="15%">PointsFor</td>
     <td align="right" width="15%">PointsAgainst</td>
     @foreach (Standing test in Model)
     {
-      <tr class="evenrow"><td>TeamName</td><td align="right">test.Wins</td><td align="right">test.Wins</td><td align="right">test.Wins / test.Loss</td><td align="right" class="active">0</td><td align="right">0</td><td align="right">test.PtsFor</td><td align="right">test.PtsAgst</td></tr>
+      <tr class="evenrow"><td>TeamName</td><td align="right">test.Wins</td><td align="right">test.Wins</td><td align="right">test.Wins / test.Loss</td><td align="right">0</td><td align="right">test.PtsFor</td><td align="right">test.PtsAgst</td></tr>
 
     }
   </table>

@@ -91,10 +91,10 @@ namespace HFSclient.Controllers
 
     [Authorize(Roles = "Administrator")]
     [HttpPost]
-    public async Task<ActionResult> Sim(int GroupId1, int GroupId2, int Week )
+    public async Task<ActionResult> Sim(int GroupId1, int GroupId2, int Week ) //might be schedule id
     {
-      Schedule schedule = new Schedule();
-      schedule.ScheduleId = _db.Schedules.Count() + 1; 
+      Schedule schedule = new Schedule(); //likely be changed
+      schedule.ScheduleId = _db.Schedules.Count() + 1; //likely be changed
       if(GroupId1 != 0)
       {
         schedule.GroupId1 = GroupId1;
