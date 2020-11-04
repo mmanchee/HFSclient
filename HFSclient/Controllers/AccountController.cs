@@ -3,12 +3,9 @@ using Microsoft.AspNetCore.Identity;
 using HFSclient.Models;
 using System.Threading.Tasks;
 using HFSclient.ViewModels;
-using System;
-using System.Linq;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Security.Claims;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace HFSclient.Controllers
 {
@@ -40,17 +37,19 @@ namespace HFSclient.Controllers
     [HttpPost]
     public async Task<ActionResult> Register(RegisterViewModel model)
     {
-      var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
+      var user = new ApplicationUser { UserName = model.Email };
       IdentityResult result = await _userManager.CreateAsync(user, model.Password);
       if (result.Succeeded)
       {
-        return RedirectToAction("Index");
+        return RedirectToAction("Login");
       }
       else
       {
+        ViewBag.err = "Login not excepted";
         return View();
       }
     }
+
     public ActionResult Login()
     {
       return View();
@@ -66,15 +65,15 @@ namespace HFSclient.Controllers
       }
       else
       {
+        ViewBag.err = "Login not excepted";
         return View();
       }
     }
 
-    [HttpPost]
-    public async Task<ActionResult> LogOff()
+    public async Task<ActionResult> LogOut()
     {
       await _signInManager.SignOutAsync();
-      return RedirectToAction("Index");
+      return RedirectToAction("Index", "Home");
     }
   }
 }

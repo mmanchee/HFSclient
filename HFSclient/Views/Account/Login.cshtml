@@ -7,13 +7,21 @@
 
 <p>Log in with your account</p>
 <hr />
+@if (ViewBag.err != null)
+{
+  @ViewBag.err
+}
 @using (Html.BeginForm())
 {
-  @Html.Label("Email")
-  @Html.TextBoxFor(m => m.Email)
-  <br>
-  @Html.Label("Password")
-  @Html.PasswordFor(m => m.Password)
-
+  <table>
+    <tr>
+      <td>@Html.Label("Email")</td>
+      <td>@Html.TextBoxFor(m => m.Email)</td>
+    </tr>
+    <tr>
+      <td>@Html.Label("Password")</td>
+      <td>@Html.PasswordFor(m => m.Password)</td>
+    </tr>
+  </table>
   <input type="submit" value="Log in" class="btn btn-info" />
 }

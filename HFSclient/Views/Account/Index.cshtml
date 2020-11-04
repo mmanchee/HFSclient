@@ -5,18 +5,27 @@ Button Join a League *@
   Layout = "_Layout";
 }
 
-@using HFSclient.Models
-@using HFSclient.ViewModels
+@using System.Security.Claims
 
 <p>Leagues</p>
 <hr />
-@if (@Model.Any())
+@if (User.Identity.IsAuthenticated)
 {
-  foreach(var league in Model)
+  <p>Hello @User.Identity.Name!</p>
+  @if (@Model != null)
   {
-    @Html.ActionLink($"{league.League.Name}", "Detalis", "Leagues", null, new { @class = "btn btn-info" })
+    @foreach(var league in Model)
+    {
+      @Html.ActionLink($"{league.League.Name}", "Detalis", "Leagues", null, new { @class = "btn btn-info" })
+    }
+  }
+  else
+  {
+    <p>Log in with your account or Register</p>
+    <hr />
+    @Html.ActionLink(" Log in", "Login", "Account", null, new { @class = "btn btn-info fa fa-sign-in" })
+    @Html.ActionLink(" Register", "Register", "Account", null, new {@class = "btn btn-info fa fa-pencil-square-o"})
   }
 }
 <hr />
 @Html.ActionLink("Join League", "Index", "League", null, new { @class = "btn btn-info"})
-

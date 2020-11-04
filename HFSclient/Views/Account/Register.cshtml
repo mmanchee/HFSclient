@@ -4,21 +4,31 @@
 @using HFSclient.ViewModels
 @model RegisterViewModel
 
-<h2>Register a new user</h2>
+<p>Register a new user</p>
 <hr />
+@if (ViewBag.err != null)
+{
+  @ViewBag.err
+}
 @using (Html.BeginForm("Register", "Account", FormMethod.Post))
 {
-  @Html.Label("Username")
-  @Html.TextBoxFor(user=> user.UserName)
-  
-  @Html.Label("Email")
-  @Html.TextBoxFor(user=> user.Email)
-
-  @Html.Label("Password")
-  @Html.PasswordFor(user=> user.Password)
-
-  @Html.Label("Confirm Password")
-  @Html.PasswordFor(user=> user.ConfirmPassword)
-
+  <table>
+    <tr>
+      <td>@Html.Label("Username")</td>
+      <td>@Html.TextBoxFor(user=> user.UserName)</td>
+    </tr>
+    <tr>
+      <td>@Html.Label("Email")</td>
+      <td>@Html.TextBoxFor(user=> user.Email)</td>
+    </tr>
+    <tr>
+      <td>@Html.Label("Password")</td>
+      <td>@Html.PasswordFor(user=> user.Password)</td>
+    </tr>
+    <tr>
+      <td>@Html.Label("Confirm Password")</td>
+      <td>@Html.PasswordFor(user=> user.ConfirmPassword)</td>
+    </tr>
+  </table>
   <input type="submit" value="Register" class="btn btn-info"/>
 }
