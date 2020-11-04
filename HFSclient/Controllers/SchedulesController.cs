@@ -31,9 +31,6 @@ namespace HFSclient.Controllers
     {
       return View();
     }
-
-
-
   
     [Authorize(Roles = "Administrator")]
     [HttpPost]
@@ -69,6 +66,10 @@ namespace HFSclient.Controllers
     {
       var thisSchedule = _db.Schedules
         .FirstOrDefault(x => x.ScheduleId == id);
+      ViewBag.Team1Trackers = _db.Trackers.Where(x => x.ScheduleId == id && x.GroupId == thisSchedule.GroupId1).Include(x => x.Player).Include(x =>x.Game).OrderBy(x => x.Position); 
+      ViewBag.Team2Trackers = _db.Trackers.Where(x => x.ScheduleId == id && x.GroupId == thisSchedule.GroupId2).Include(x => x.Player).Include(x =>x.Game).OrderBy(x => x.Position); 
+      ViewBag.Team1Name = _db.Groups.Where(c => c.GroupId ==  thisSchedule.GroupId1);
+      ViewBag.Team2Name = _db.Groups.Where(c => c.GroupId ==  thisSchedule.GroupId2);
       return View(thisSchedule);
     }
 
@@ -278,6 +279,23 @@ namespace HFSclient.Controllers
       }
       _db.SaveChanges();
       return RedirectToAction("index");// need to change to proper view
+    }
+    public ActionResult LeagueSchedule(int id) //League Id
+    {
+      var teams = _db.Groups.Where(x => x.LeagueId  == id).ToList();
+      List<Schedule> games = new List<Schedule>();
+      foreach (Group team in teams)
+      {
+        List<Schedule> s = _db.Schedules().Where(x => x.GroupId1 == team.GroupId);
+        foreach (Schedule  schedule in s)
+        {
+            games.Add(schedule);
+        }
+          
+      }
+        
+      
+      return View(games.OrderBy(x => x.Week));
     }
 
     

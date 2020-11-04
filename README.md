@@ -1,8 +1,8 @@
-# _1_
+# _Fantasy Football League_
 
-#### _1, November 2nd 26rd, 2020_
+#### _1, November 2nd, 2020; Modified November 5th, 2020_
 
-#### By _**1**_
+#### By _**Mike Manchee, Joseph Nilles, Daniel Schaaf & Jeff Dinsmore **_
 
 ## Description
 

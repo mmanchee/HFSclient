@@ -9,12 +9,16 @@
 <hr />
 @using (Html.BeginForm())
 {
-  @Html.HiddenFor(@ViewBag.League.LeagueId)
+  @* @Html.HiddenFor(model => model.LeagueId) *@
+  @Html.Hidden("LeagueId", (int)@ViewBag.League.LeagueId)
 
   @Html.Label("Choose your teams name:")
-  @Html.DisplayFor(model => model.TeamName)
+  @Html.TextBoxFor(model => model.TeamName)
 
   <input type="submit" value="Join" class="btn btn-success btn-sm" />
 }
 <br>
 <p>@Html.ActionLink("Cancel", "Index", null, null, new {@class="btn btn-info btn-sm"})</p>
+
+
+

@@ -9,6 +9,8 @@ namespace HFSclient.Models
     public int Team1Score { get; set; } 
     public int Team2Score { get; set; } 
     public bool IsComplete { get; set; }
+    public virtual Group Group {get; set;}
+    
     //might need league id
     //public int LeagueId { get; set; }
   }

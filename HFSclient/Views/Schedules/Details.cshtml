@@ -1,1 +1,43 @@
-Owners Schedule
+@{
+  Layout = "_Layout";
+}
+@using HFSclient.Models;
+
+@model HFSclient.Models.Schedule;
+
+<div>
+<div class="row">
+  Week @Model.Week
+  <div class="col-6">
+  @ViewBag.Team1Name
+  @Model.Team2Score;
+  <ul>
+  @foreach (Tracker tracker in @ViewBag.Team1Trackers)
+  {
+      <li>@tracker.Player.FirstName @tracker.Player.LastName</li>
+      <li>@tracker.Player.Postion </li>
+      <li>@tracker.Points </li>
+      
+  }
+  </ul>
+  </div>
+  <div class="col-6">
+  @ViewBag.Team2Name
+  @Model.Team2Score;
+  @foreach (Tracker tracker in @ViewBag.Team2Trackers)
+  {
+      <li>@tracker.Player.FirstName @tracker.Player.LastName</li>
+      <li>@tracker.Player.Postion </li>
+      <li>@tracker.Points </li>
+     
+      
+  }
+  </div>
+
+</div>
+  
+
+</div>
+
+
+

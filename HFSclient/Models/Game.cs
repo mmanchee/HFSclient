@@ -8,9 +8,10 @@ namespace HFSclient.Models
   public class Game
   {
     public int GameId { get; set; }
+    public int ScheduleId { get; set; }
+    public int PlayerId { get; set; }
     public int Season { get; set; }
     public int Week { get; set; }
-    public int PlayerId { get; set; }
     public string Team { get; set; }
     public int PassYards { get; set; }
     public int RecYards { get; set; }
@@ -21,6 +22,7 @@ namespace HFSclient.Models
     public int PassTDs { get; set; }
     public int RushTDs { get; set; }
     public int RecTDs { get; set; }
+    public virtual Player Player { get; set;}
     public Game()
     {
       

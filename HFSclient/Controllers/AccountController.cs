@@ -6,6 +6,7 @@ using HFSclient.ViewModels;
 using System.Security.Claims;
 using System.Linq;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 
 namespace HFSclient.Controllers
 {
@@ -68,11 +69,25 @@ namespace HFSclient.Controllers
         ViewBag.err = "Login not excepted";
         return View();
       }
-    }    
+    } 
+
     public async Task<ActionResult> LogOut()
     {
       await _signInManager.SignOutAsync();
       return RedirectToAction("Index", "Home");
+    }
+    public ActionResult RemoveLeague(int id)
+    {
+      var model = _db.Groups.FirstOrDefault(x => x.GroupId == id);
+      return View(model);
+    }
+    public ActionResult ConfirmRemove(int id)
+    {
+      Group groupToBeInactive = _db.Groups.FirstOrDefault(x => x.GroupId == id);
+      groupToBeInactive.Active = 0;
+      _db.Entry(groupToBeInactive).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
     }
   }
 }

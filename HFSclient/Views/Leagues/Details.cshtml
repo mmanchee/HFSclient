@@ -19,6 +19,10 @@
           <tr>
             <td>@league.TeamName</td>
             <td>@Html.ActionLink(" View Team", "", "Rosters", new { id = league.GroupId }, new { @class = "btn-btn-info"})</td>
+            @if(@ViewBag.Owner)
+            {
+              <td>@Html.ActionLink(" Rmove", "RemoveOwner", null, new { id = league.GroupId }, new { @class = "btn-btn-info"})</td>
+            }
           </tr>
         }
       }

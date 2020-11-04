@@ -12,20 +12,27 @@ Button Join a League *@
 @if (User.Identity.IsAuthenticated)
 {
   <p>Hello @User.Identity.Name!</p>
+  <table>
   @if (@Model != null)
   {
+    
     @foreach(var league in Model)
     {
-      @Html.ActionLink($"{league.League.Name}", "Detalis", "Leagues", null, new { @class = "btn btn-info" })
+      <tr>
+        <td>@league.League.LeagueName</td>
+        <td>@Html.ActionLink(" View", "Details", "Leagues", new {id = league.League.LeagueId }, new { @class = "btn btn-info" })</td>
+        <td>@Html.ActionLink(" Remove", "RemoveLeague", null, new {id = league.GroupId }, new { @class = "btn btn-info" })</td>
+      </tr>
     }
   }
   else
   {
     <p>Log in with your account or Register</p>
     <hr />
-    @Html.ActionLink(" Log in", "Login", "Account", null, new { @class = "btn btn-info fa fa-sign-in" })
-    @Html.ActionLink(" Register", "Register", "Account", null, new {@class = "btn btn-info fa fa-pencil-square-o"})
+    @Html.ActionLink(" Log in", "Login", "Account", null, new { @class = "btn btn-info" })
+    @Html.ActionLink(" Register", "Register", "Account", null, new {@class = "btn btn-info"})
   }
+  </table>
 }
 <hr />
 @Html.ActionLink("Join League", "Index", "Leagues", null, new { @class = "btn btn-info"})

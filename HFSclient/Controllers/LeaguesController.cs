@@ -46,8 +46,15 @@ namespace HFSclient.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-    public ActionResult Details(int id)
+    public async Task<ActionResult> Details(int id)
     {
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      var currentGroupId = _db.Groups.FirstOrDefault(x => x.LeagueId == id && x.User.Id == currentUser.Id);
+      if(currentGroupId.OwnerRole == "Commissioner")
+      {
+        ViewBag.Owner = true;
+      }
       var league = _db.Leagues.FirstOrDefault(x => x.LeagueId == id);
       List<Group> model = _db.Groups.Where(x => x.LeagueId == id && x.LeagueSeason == league.CurrentSeason).ToList();
       ViewBag.League = league;
@@ -90,7 +97,20 @@ namespace HFSclient.Controllers
       Group league = new Group {LeagueId = group.LeagueId, User = currentUser, TeamName = group.TeamName, LeagueSeason = thisLeague.CurrentSeason, OwnerRole = "Owner"};
       _db.Groups.Add(league);
       _db.SaveChanges();
-      return View("Details", new {id = group.LeagueId});
+      return RedirectToAction("Details", new {id = group.LeagueId});
+    }
+    public ActionResult RemoveOwner(int id)
+    {
+      var model = _db.Groups.FirstOrDefault(x => x.GroupId == id);
+      return View(model);
+    }
+    public ActionResult ConfirmRemove(int id)
+    {
+      Group groupToBeInactive = _db.Groups.FirstOrDefault(x => x.GroupId == id);
+      groupToBeInactive.Active = 0;
+      _db.Entry(groupToBeInactive).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Details", new {groupToBeInactive.LeagueId});
     }
   }
 }

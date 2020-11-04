@@ -8,6 +8,7 @@ namespace HFSclient.Models
     public string TeamName { get; set; }
     public int LeagueSeason { get; set; }
     public string OwnerRole { get; set; }
+    public int Active { get; set; }
     public virtual League League { get; set; }
   }
 }
