@@ -10,6 +10,7 @@ namespace HFSclient.Models
     }
     public int LeagueId { get; set; }
     public string LeagueName { get; set; }
+    public int CurrentSeason { get; set; }
     public virtual ICollection<Group> Groups { get; }  
   }
 }

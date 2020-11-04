@@ -3,16 +3,22 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using HFSclient.Models;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
+
 
 namespace HFSclient.Controllers
 {
   public class LeaguesController : Controller
   {
     public readonly HFSclientContext _db;
-    public LeaguesController(HFSclientContext db)
+    private readonly UserManager<ApplicationUser> _userManager;
+    public LeaguesController(UserManager<ApplicationUser> userManager, HFSclientContext db)
     {
+      _userManager = userManager;
       _db = db;
     }
     public ActionResult Index()
@@ -29,19 +35,24 @@ namespace HFSclient.Controllers
 
     // [Authorize(Roles = "Administrator")]
     [HttpPost]
-    public ActionResult Create(League league)
+    public async Task<ActionResult> Create(League league)
     {
       _db.Leagues.Add(league);
+      _db.SaveChanges();
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      Group groupRow = new Group {LeagueId = league.LeagueId, User = currentUser, TeamName = "Commish", LeagueSeason = league.CurrentSeason, OwnerRole = "Commissioner"};
+      _db.Groups.Add(groupRow);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
     public ActionResult Details(int id)
     {
-      var thisLeague = _db.Leagues
-        .Include(league => league.Groups)
-        .FirstOrDefault(league => league.LeagueId == id);
-      return View(thisLeague);
-    }
+      var league = _db.Leagues.FirstOrDefault(x => x.LeagueId == id);
+      List<Group> model = _db.Groups.Where(x => x.LeagueId == id && x.LeagueSeason == league.CurrentSeason).ToList();
+      ViewBag.League = league;
+      return View(model);
+    }    
 
     // [Authorize(Roles = "Administrator")]
     public ActionResult Edit(int id)
@@ -64,11 +75,22 @@ namespace HFSclient.Controllers
       List<League> model = _db.Leagues.Where(x => x.LeagueName.Contains(Name)).ToList();
       return View("Index", model);
     }
-
     public ActionResult Join(int id)
     {
-      var thisLeague = _db.Leagues.FirstOrDefault(x => x.LeagueId == id);
-      return View(thisLeague);
+      ViewBag.League = _db.Leagues.FirstOrDefault(x => x.LeagueId == id);
+      return View();
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> Join(Group group)
+    {
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      var thisLeague = _db.Leagues.FirstOrDefault(x => x.LeagueId == group.LeagueId);
+      Group league = new Group {LeagueId = group.LeagueId, User = currentUser, TeamName = group.TeamName, LeagueSeason = thisLeague.CurrentSeason, OwnerRole = "Owner"};
+      _db.Groups.Add(league);
+      _db.SaveChanges();
+      return View("Details", new {id = group.LeagueId});
     }
   }
 }

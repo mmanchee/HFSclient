@@ -1,25 +1,41 @@
 @{
   Layout = "_Layout";
 }
+
 @using HFSclient.Models;
-<br>
+
 @using (Html.BeginForm())
 {
-  @Html.Label("Search for a League")
-  @Html.TextBox("Name")
-  <input type="submit" value="Search" class="btn btn-info btn-sm"/> //value is the button text
+  <table>
+    <tr>
+      <td>Search for a League</td>
+      <td>@Html.TextBox("Name")</td>
+      <td><input type="submit" value="Search" class="btn btn-info btn-sm"/></td>//value is the button text
+    </tr>
+  </table>
 }
-<h3>Current Leagues</h3>
-<p>Hello @User.Identity.Name </p>
-@if (@Model.Count == 0)
-{
-  <p>There are no Leauges in this list.</p>
-}
-@foreach (League league in Model)
-{
-  <li>@Html.ActionLink($"{league.LeagueName}", "Details", new { id = league.LeagueId })</li>
-}
-<br>
+<hr />
+<p>Current Leagues</p>
+<hr />
+<div class="box">
+  <div class="inner-box">
+    <table>
+      @if (@Model.Count == 0)
+      {
+        <tr>
+          <td>There are no Leauges in this list.</td>
+        </tr>
+      }
+      @foreach (League league in Model)
+      {
+        <tr>
+          <td>@league.LeagueName</td>
+          <td>@Html.ActionLink("View", "Details", new { id = league.LeagueId }, new {@class="btn btn-info btn-sm"} )</td>
+        </tr>
+      }
+    </table>
+  </div>
+</div>
 
 <p>@Html.ActionLink("Add New League", "Create", null, null, new {@class="btn btn-success btn-sm"})</p>
 <p>@Html.ActionLink("See All Leagues", "Index", null, null, new {@class="btn btn-info btn-sm"})</p>

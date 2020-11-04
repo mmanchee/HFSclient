@@ -19,7 +19,7 @@
 
 /* _Layout */
 #render {
-  font-size: 25px;
+  font-size: 20px;
   margin-top: 200px;
 }
 
@@ -38,4 +38,18 @@
 /* Home Index */
 .splash {
   text-align: center;
+}
+
+/* Nav Box */
+.box {
+  background-color:rgb(204, 207, 212);
+  height: 200px;
+  width: 80%;
+  text-align: left;
+  overflow-y: scroll;
+  margin-top: 2% 0 2% 5%;
+  border-radius: 10px;
+}
+.inner-box {
+  margin: 2% 5% 2% 5%;
 }

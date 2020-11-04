@@ -17,8 +17,12 @@ namespace HFSclient
 {
   public class Startup
   {
-    public Startup(IConfiguration configuration)
+    public Startup(IConfiguration configuration)//IHostingEnvironment env
     {
+      // var builder = new ConfigurationBuilder()
+      //     .SetBasePath(env.ContentRootPath)
+      //     .AddJsonFile("appsettings.json");
+      // Configuration = builder.Build();
       Configuration = configuration;
     }
 

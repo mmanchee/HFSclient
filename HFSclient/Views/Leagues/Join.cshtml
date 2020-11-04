@@ -1,18 +1,20 @@
 @{
   Layout = "_Layout";
 }
-@model HFSclient.Models.League
 
-<h3>Join this League: @Html.DisplayFor(model => model.LeagueName)</h3>
-<br>
-@* @using (Html.BeginForm())
+@using HFSclient.Models
+@model HFSclient.Models.Group
+
+<p>Join this League: @ViewBag.League.LeagueName</p>
+<hr />
+@using (Html.BeginForm())
 {
-  @Html.HiddenFor(model => model.LeagueId)
+  @Html.HiddenFor(@ViewBag.League.LeagueId)
 
-  @Html.Label("Select League")
-  @Html.DropDownList("LeagueId", null, "Please Select", htmlAttributes: new{required = "Please select a League"})
+  @Html.Label("Choose your teams name:")
+  @Html.DisplayFor(model => model.TeamName)
 
-  <input type="submit" value="Save" class="btn btn-success btn-sm" />
-} *@
+  <input type="submit" value="Join" class="btn btn-success btn-sm" />
+}
 <br>
-<p>@Html.ActionLink("Cancel", "Index", null, null, new {@class="btn btn-primary btn-sm"})</p>
+<p>@Html.ActionLink("Cancel", "Index", null, null, new {@class="btn btn-info btn-sm"})</p>

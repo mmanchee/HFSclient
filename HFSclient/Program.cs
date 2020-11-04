@@ -16,7 +16,9 @@ namespace HFSclient
   {
     static void Main(string[] args)
     {
-      CreateWebHostBuilder(args).Build().Run();
+      var host = CreateWebHostBuilder(args).Build();
+      InitializeDatabase(host);
+      host.Run();
     }
 
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -43,4 +45,3 @@ namespace HFSclient
     }
   }
 }
-

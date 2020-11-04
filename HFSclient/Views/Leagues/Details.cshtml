@@ -1,19 +1,43 @@
 @{
   Layout = "_Layout";
 }
-@model HFSclient.Models.League;
-<h1>League details</h1>
+
+@using HFSclient.Models
+
+<p>League details</p>
+<hr />
+<p><strong>Name:</strong> @ViewBag.League.LeagueName</p>
+<hr />
+<p>Owners in this League:</p>
+<div class="box">
+  <div class="inner-box">
+    <table>
+      @if (@Model.Count != 0)
+      {
+        @foreach (var league in Model)
+        {
+          <tr>
+            <td>@league.TeamName</td>
+            <td>@Html.ActionLink(" View Team", "", "Rosters", new { id = league.GroupId }, new { @class = "btn-btn-info"})</td>
+          </tr>
+        }
+      }
+      else
+      {
+        <tr>
+          <td>There are no Owners in this list.</td>
+        </tr>
+      }
+    </table>
+  </div>
+</div>
 <br>
-
-<h5><strong>@Html.DisplayName("Name"):</strong> @Html.DisplayFor(model => model.LeagueName)</h5>
-<br>
-
-<h5>Players in this League:</h5>
-
-<br>
-<p>@Html.ActionLink("Edit League", "Edit", new { id = Model.LeagueId }, new {@class="btn btn-success btn-sm"})</p>
-
-<p>@Html.ActionLink("See All Leagues", "Index", null, null, new {@class="btn btn-info btn-sm"})</p>
+<p>@Html.ActionLink(" Edit League", "Edit", new { id = @ViewBag.League.LeagueId }, new {@class="btn btn-success btn-sm"})</p>
+<p>@Html.ActionLink(" See All Leagues", "Index", null, null, new {@class="btn btn-info btn-sm"})</p>
+@if(@Model.Count < 13)
+{
+  <p>@Html.ActionLink(" Join League", "Join", new { id = @ViewBag.League.LeagueId }, new {@class="btn btn-success btn-sm"})</p>
+}
 @* League
 Current Players
 User clicks on themselves -> Roster

@@ -12,7 +12,7 @@ namespace HFSclient.Controllers
   public class AccountController : Controller
   {
     private readonly HFSclientContext _db;
-    private readonly UserManager<ApplicationUser> _userManager;
+    private readonly UserManager<ApplicationUser> _userManager ;
     private readonly SignInManager<ApplicationUser> _signInManager;
 
     public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, HFSclientContext db)
@@ -69,7 +69,6 @@ namespace HFSclient.Controllers
         return View();
       }
     }
-
     public async Task<ActionResult> LogOut()
     {
       await _signInManager.SignOutAsync();
