@@ -10,5 +10,5 @@
 <hr />
 @Html.Label("Team Name"): @Html.DisplayFor(model => model.TeamName)
 @using (Html.BeginForm())
-@Html.ActionLink(" Remove", "RemoveLeague", null, new { id = Model.GroupId}, new { @class = "btn btn-info"})
+@Html.ActionLink(" Remove", "ConfirmRemove", null, new { id = Model.GroupId}, new { @class = "btn btn-info"})
 <hr />

@@ -66,8 +66,8 @@ namespace HFSclient.Controllers
     {
       var thisSchedule = _db.Schedules
         .FirstOrDefault(x => x.ScheduleId == id);
-      ViewBag.Team1Trackers = _db.Trackers.Where(x => x.ScheduleId == id && x.GroupId == thisSchedule.GroupId1).Include(x => x.Player).Include(x =>x.Game).OrderBy(x => x.Position); 
-      ViewBag.Team2Trackers = _db.Trackers.Where(x => x.ScheduleId == id && x.GroupId == thisSchedule.GroupId2).Include(x => x.Player).Include(x =>x.Game).OrderBy(x => x.Position); 
+      ViewBag.Team1Trackers = _db.Trackers.Where(x => x.ScheduleId == id && x.GroupId == thisSchedule.GroupId1)OrderBy(x => x.Position); 
+      ViewBag.Team2Trackers = _db.Trackers.Where(x => x.ScheduleId == id && x.GroupId == thisSchedule.GroupId2).OrderBy(x => x.Position); 
       ViewBag.Team1Name = _db.Groups.Where(c => c.GroupId ==  thisSchedule.GroupId1);
       ViewBag.Team2Name = _db.Groups.Where(c => c.GroupId ==  thisSchedule.GroupId2);
       return View(thisSchedule);
@@ -118,6 +118,8 @@ namespace HFSclient.Controllers
           tracker.GameId = game.GameId;
           tracker.GroupId = schedule.GroupId1;
           tracker.Position = roster.Position;
+          tracker.FirstName = roster.FirstName;
+          tracker.LastName = roster.LastName;
           tracker.Points = game.CalcScore(); //calculate fantasy points here 
           if(tracker.Position != "bench")//make sure not a bench player and add to schedule points for the team
           {
@@ -135,6 +137,8 @@ namespace HFSclient.Controllers
           tracker.GameId = game.GameId;
           tracker.GroupId = schedule.GroupId2;
           tracker.Position = roster.Position;
+          tracker.FirstName = roster.FirstName;
+          tracker.LastName = roster.LastName;
           tracker.Points = game.CalcScore(); //calculate fantasy points here 
           if(tracker.Position != "bench")//make sure not a bench player and add to schedule points for the team
           {
@@ -286,7 +290,7 @@ namespace HFSclient.Controllers
       List<Schedule> games = new List<Schedule>();
       foreach (Group team in teams)
       {
-        List<Schedule> s = _db.Schedules().Where(x => x.GroupId1 == team.GroupId);
+        List<Schedule> s = _db.Schedules.Where(x => x.GroupId1 == team.GroupId).ToList();
         foreach (Schedule  schedule in s)
         {
             games.Add(schedule);

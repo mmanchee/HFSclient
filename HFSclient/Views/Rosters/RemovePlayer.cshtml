@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+}
+
+@model HFSclient.Models.Roster
+
+
+<hr />
+<p>Are you sure you want to remove this Player?</p>
+<hr />
+@Html.Label("Team Name"): @Model.FirstName @Model.LastName
+@using (Html.BeginForm())
+@Html.ActionLink(" Remove", "ConfirmRemove", null, new { id = Model.PlayerId, groupId = Model.GroupId}, new { @class = "btn btn-info"})
+@Html.ActionLink(" Cancel", "Index", null, new { id = Model.GroupId}, new { @class = "btn btn-info"})
+<hr />

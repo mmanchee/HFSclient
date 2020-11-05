@@ -14,9 +14,9 @@ namespace HFSclient.Controllers
   {
     private readonly HFSclientContext _db;
     
-    public IActionResult Index()
+    public IActionResult Index(int id)
     {
-      List<Standing> model= _db.Standings.ToList();
+      List<Standing> model= _db.Standings.Where(x => x.LeagueId == id).OrderByDescending(x => x.Wins).ToList();
       return View(model);
     }
   }

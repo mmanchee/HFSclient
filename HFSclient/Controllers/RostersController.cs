@@ -15,29 +15,33 @@ namespace HFSclient.Controllers
     {
       _db = db;
     }
-    public ActionResult Index()
+    public ActionResult Index(int id)
     {
-      
-      List<Schedule> model = _db.Schedules.ToList();
+      List<Roster> model = _db.Rosters.Where(x => x.GroupId == id).ToList();
+      ViewBag.Group = _db.Groups.FirstOrDefault(x => x.GroupId == id);
       return View(model);
     }
 
     [Authorize(Roles = "Administrator")]
-    public ActionResult Create()
+    public ActionResult PlayerSearch(int id)// Search for Players
     {
+      ViewBag.Owner.GroupId = id;
+      //var model ... find Available players
       return View();
     }
 
-    [Authorize]
     [HttpPost]
-    public ActionResult Create(int GroupId, int PlayerId) //commish add players to rosterc
+    public ActionResult AddPlayer(int GroupId, int PlayerId) //commish add players to rosterc
     {
       if(_db.Rosters.Where(x => x.GroupId == GroupId).Count() > 12)   //    Sets roster size
-       {
-         Roster roster = new Roster();
+      {
+        Player p = GetPlayerFromApi(PlayerId)
+        Roster roster = new Roster();
         roster.GroupId = GroupId;
         roster.PlayerId = PlayerId;
         roster.Position = "bench";
+        roster.LastName = p.LastName;
+        roster.FirstName = p.FirstName;
         _db.Rosters.Add(roster);
         _db.SaveChanges();
       }
@@ -49,18 +53,11 @@ namespace HFSclient.Controllers
       
       return RedirectToAction("Index"); //might have to change which view
     }
-     [Authorize]
-    public ActionResult Delete(int id) //commish add players to rosterc
+    public ActionResult Details(int id)
     {
-     Roster roster =  _db.Rosters.FirstOrDefault(x => x.RosterId == id);
-      _db.Rosters.Remove(roster);
-      _db.SaveChanges();
-      return RedirectToAction("Details", new { id = roster.GroupId});
-    }
-    public ActionResult Details(int id) //list one fantasy teams roster id ==groupId
-    {
-      var Roster = _db.Rosters.Where(x => x.GroupId == id).ToList();
-      return View(Roster);
+      int PlayerId = id;
+      Player model = GetPlayerFromApi(PlayerId)
+      return View(model);
     }
 
 
@@ -89,6 +86,18 @@ namespace HFSclient.Controllers
     // {
     //   List<League> model = _db.Leagues.Where(x => x.LeagueName.Contains(leagueName)).ToList();
     //   return View("Index", model);
-    // }    
+    // } 
+    public ActionResult RemovePlayer(int id)
+    {
+      var model = _db.Rosters.FirstOrDefault(x => x.RosterId == id);
+      return View(model);
+    }
+    public ActionResult ConfirmRemove(int id, int groupId)
+    {
+      var player = _db.Roster.FirstOrDefault(x => x.PlayerId == id && x.GroupId == groupId);
+      _db.EngineerLicense.Remove(player);
+      _db.SaveChanges();
+      return RedirectToAction("Index", new {});
+    }   
   }
 }

@@ -22,7 +22,6 @@ namespace HFSclient.Models
     public int PassTDs { get; set; }
     public int RushTDs { get; set; }
     public int RecTDs { get; set; }
-    public virtual Player Player { get; set;}
     public Game()
     {
       

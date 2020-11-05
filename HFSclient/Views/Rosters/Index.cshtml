@@ -1,0 +1,33 @@
+@{
+  Layout = "_Layout";
+}
+@model HFSclient.Models
+
+@foreach(Roster roster in Model)
+{
+  <li>@roster.FirstName @roster.LastName
+
+  @Html.ActionLink(" Change Position", "Edit", null, new {id = roster.RosterId}, new {@class="btn btn-success btn-sm"})
+
+  @Html.ActionLink(" Remove", "RemovePlayer", null, new {id = roster.RosterId}, new {@class="btn btn-success btn-sm"})
+  </li>
+}
+<br>
+@Html.ActionLink(" Find a Player", "PlayerSearch", null, new { id = ViewBag.Group.GroupId } , new {@class="btn btn-success btn-sm"})
+@Html.ActionLink(" League", "Index", "League", new { id = ViewBag.Group.LeagueId }, new {@class="btn btn-success btn-sm"})
+
+@* Dropdown to select poistion on team
+List of Players
+  First 
+  Last *@
+
+@* Buttons
+Remove Players
+Add Players
+League Details *@
+
+
+@* Tom Brady (Dropdown) [Remove]
+
+[Add Player]
+[League Details] *@

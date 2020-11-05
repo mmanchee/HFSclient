@@ -14,8 +14,8 @@
   <ul>
   @foreach (Tracker tracker in @ViewBag.Team1Trackers)
   {
-      <li>@tracker.Player.FirstName @tracker.Player.LastName</li>
-      <li>@tracker.Player.Postion </li>
+      <li>@tracker.FirstName @tracker..LastName</li>
+      <li>@tracker.Position </li>
       <li>@tracker.Points </li>
       
   }
@@ -26,8 +26,8 @@
   @Model.Team2Score;
   @foreach (Tracker tracker in @ViewBag.Team2Trackers)
   {
-      <li>@tracker.Player.FirstName @tracker.Player.LastName</li>
-      <li>@tracker.Player.Postion </li>
+      <li>@tracker.FirstName @tracker.LastName</li>
+      <li>@tracker.Position </li>
       <li>@tracker.Points </li>
      
       

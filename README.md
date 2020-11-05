@@ -1,6 +1,6 @@
 # _Fantasy Football League_
 
-#### _1, November 2nd, 2020; Modified November 5th, 2020_
+#### _Fantasy Football program API and database to simulate fantasy football games, Created: November 2nd, 2020; Modified: November 5th, 2020_
 
 #### By _**Mike Manchee, Joseph Nilles, Daniel Schaaf & Jeff Dinsmore **_
 
@@ -25,8 +25,10 @@
   * Extract files into a single directory 
   * Run GitBASH in directory
   * Type "dotnet restore" to get bin and obj files
+  * Type "dotnet build" to verify no errors
+  * Type "dotnet ef migrations add Initial" to initialize migrations
+  * Type "dotnet ef database update" to add the database
   * Type "dotnet run" in GitBash to run the program
-  * Add database per the instructions below.
   * Have fun with HFS Client<!-- TITLE HERE -->
 
 * Cloning options
@@ -34,9 +36,20 @@
   * Place files into a single directory 
   * Run GitBASH in directory
   * Type "dotnet restore" to get bin and obj files
+  * Type "dotnet build" to verify no errors
+  * Type "dotnet ef migrations add Initial" to initialize migrations
+  * Type "dotnet ef database update" to add the database
   * Type "dotnet run" in GitBash to run the program
   * Add database per the instructions below.
   * Have fun with HFS Client<!-- TITLE HERE -->
+
+### To Login as Administrator and Change Administrator Credentials
+* _To login as the administrator, use the username and password credentials "admin@HFS.local" & "NotSecure123!!"_
+* _The admin credentials can be changed to your preferred username and password by going to the SeedData.cs file in the project root directory_
+* _Change lines 38 & 47 where the username "admin@pierre.local" is to your preferred username_
+* _Change line 48 where the password "Notsecure1" is and change to your preferred password_
+* _Save both files_
+* _Your admin username and password are now updated_
 
 ## Known Bugs
 

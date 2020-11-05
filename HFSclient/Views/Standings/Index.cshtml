@@ -14,19 +14,18 @@ else
 {
    <table cellpadding="3" cellspacing="1" class="Standings" width="575"><tr class="masthead_alt"><td bgcolor="#FFFFFF" colspan="5">
     
-    <span style="color:#FFFFFF">Name of League</span>
+    <span style="color:#FFFFFF">@Model.LeagueName</span>
     </td></tr>
     <tr class="stathead">
     <td width="40%">TEAM</td>
     <td align="right" width="15%">Wins</td>
     <td align="right" width="15%">Losses</td>
     <td align="right" width="15%">PCT</td>
-    <td align="right" width="15%">GB</td>
     <td align="right" width="15%">PointsFor</td>
     <td align="right" width="15%">PointsAgainst</td>
-    @foreach (Standing test in Model)
+    @foreach (Standing x in Model)
     {
-      <tr class="evenrow"><td>TeamName</td><td align="right">test.Wins</td><td align="right">test.Wins</td><td align="right">test.Wins / test.Loss</td><td align="right">0</td><td align="right">test.PtsFor</td><td align="right">test.PtsAgst</td></tr>
+      <tr class="evenrow"><td>@x.TeamName</td><td align="right">@x.Wins</td><td align="right">@x.Wins</td><td align="right">@(x.Wins / @x.Losses)</td><td align="right">@x.PtsFor</td><td align="right">@x.PtsAgst</td></tr>
 
     }
   </table>
