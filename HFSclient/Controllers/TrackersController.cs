@@ -10,7 +10,7 @@ namespace HFSclient.Controllers
 {
   public class TrackersController : Controller 
   {
-    public readonly HFSclientContext _db; 
+    public readonly HFSclientContext _db;  
     public TrackersController(HFSclientContext db)
     {
       _db = db;

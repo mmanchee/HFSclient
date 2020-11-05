@@ -25,7 +25,7 @@
               <td>@Html.ActionLink(" Add Player", "Search", "Rosters", new { id = league.GroupId }, new { @class = "btn-btn-info"})</td>
             }
           </tr>
-        }
+        } 
       }
       else
       {
@@ -42,13 +42,14 @@
   <p>@Html.ActionLink(" Edit League", "Edit", new { id = @ViewBag.League.LeagueId }, new {@class="btn btn-success btn-sm"})</p>
   <p>@Html.ActionLink(" Settings", "Commish", new { id = @ViewBag.League.LeagueId }, new {@class="btn btn-success btn-sm"})</p>
 }
-<p>@Html.ActionLink(" See All Leagues", "Index", null, null, new {@class="btn btn-info btn-sm"})</p>
+@Html.ActionLink(" See All Leagues", "Index", null, null, new {@class="btn btn-info btn-sm"})
 @if(@Model.Count < 13)
 {
-  <p>@Html.ActionLink(" Join League", "Join", new { id = @ViewBag.League.LeagueId }, new {@class="btn btn-success btn-sm"})</p>
+  @Html.ActionLink(" Join League", "Join", new { id = @ViewBag.League.LeagueId }, new {@class="btn btn-success btn-sm"})
 }
-@Html.ActionLink(" View Schedule", "LeagueSchedule", "Schedules", new { id = @ViewBag.League.LeagueId }, new { @class="btn btn-info"})
-@Html.ActionLink(" View Standings", "Index", "Standings", new { id = @ViewBag.League.LeagueId }, new { @class="btn btn-info"})
+&nbsp;@Html.ActionLink(" View Schedule", "LeagueSchedule", "Schedules", new { id = @ViewBag.League.LeagueId }, new { @class="btn btn-info btn-sm"}) 
+
+@Html.ActionLink(" View Standings", "Index", "Standings", new { id = @ViewBag.League.LeagueId }, new { @class="btn btn-info btn-sm"})
 @* League
 Current Players
 User clicks on themselves -> Roster

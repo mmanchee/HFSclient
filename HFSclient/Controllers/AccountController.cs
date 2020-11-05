@@ -35,7 +35,7 @@ namespace HFSclient.Controllers
       return View();
     }
 
-    [HttpPost]
+    [HttpPost] 
     public async Task<ActionResult> Register(RegisterViewModel model)
     {
       var user = new ApplicationUser { UserName = model.Email } ;
@@ -47,7 +47,7 @@ namespace HFSclient.Controllers
       else
       {
         ViewBag.err = "Login not excepted";
-        return View() ;
+        return View();
       }
     }
 

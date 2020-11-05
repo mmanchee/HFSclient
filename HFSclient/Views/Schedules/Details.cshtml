@@ -5,30 +5,26 @@
 
 @model HFSclient.Models.Schedule;
 
-<div>
+<div>Week @Model.Week
 <div class="row">
-  Week @Model.Week
-  <div class="col-6">
-  @ViewBag.Team1Name
-  @Model.Team2Score;
+  
+  <div class="col-4">
+  <p>@ViewBag.Team1Name : @Model.Team1Score</p>
+  <p></p>
   <ul>
   @foreach (Tracker tracker in @ViewBag.Team1Trackers)
   {
-      <li>@tracker.FirstName @tracker..LastName</li>
-      <li>@tracker.Position </li>
-      <li>@tracker.Points </li>
-      
+      <li>@tracker.Position @tracker.FirstName @tracker.LastName : @Html.ActionLink(tracker.Points.ToString(), "Details", "Rosters", new { id = tracker.GameId }, new {@class="btn btn-success btn-sm"})</li>
   }
   </ul>
   </div>
-  <div class="col-6">
-  @ViewBag.Team2Name
-  @Model.Team2Score;
+  <div class="col-4">
+  <p>@ViewBag.Team2Name : @Model.Team2Score</p>
+  <p></p>
   @foreach (Tracker tracker in @ViewBag.Team2Trackers)
   {
-      <li>@tracker.FirstName @tracker.LastName</li>
-      <li>@tracker.Position </li>
-      <li>@tracker.Points </li>
+            <li>@tracker.Position @tracker.FirstName @tracker.LastName : @Html.ActionLink(tracker.Points.ToString(), "Details", "Rosters", new { id = tracker.GameId }, new {@class="btn btn-success btn-sm"})</li>
+
      
       
   }

@@ -3,15 +3,17 @@
 }
 
 @using HFSclient.Models
+@model Game
 
-@ViewBag.FirstName @ViewBag.LastName
 
 <div class="box">
   <div class="inner-box">
     <table>
-      @if (@Model.Count != 0)
+      @if (Model != null)
       {
         <tr>
+          <th>Name</th>
+          <th>Position</th>
           <th>Season</th>
           <th>Week</th>
           <th>Team</th>
@@ -25,28 +27,30 @@
           <th>RushTDs</th>
           <th>RecTDs</th>
         </tr>
-        @foreach (var row in Model)
-        {
+        @* @foreach (var row in Model)
+        { *@
           <tr>
-            <th>row.Season</th>
-            <th>row.Week</th>
-            <th>row.Team</th>
-            <th>row.PassYards</th>
-            <th>row.RecYards</th>
-            <th>row.RushYards</th>
-            <th>row.Interceptions</th>
-            <th>row.Fumbles</th>
-            <th>row.Receptions</th>
-            <th>row.PassTDs</th>
-            <th>row.RushTDs</th>
-            <th>row.RecTDs</th>
+            <th>@(ViewBag.FirstName + " " + ViewBag.LastName)</th>
+            <th>@ViewBag.Position</th>
+            <th>@Model.Season</th>
+            <th>@Model.Week</th>
+            <th>@Model.Team</th>
+            <th>@Model.PassYards</th>
+            <th>@Model.RecYards</th>
+            <th>@Model.RushYards</th>
+            <th>@Model.Interceptions</th>
+            <th>@Model.Fumbles</th>
+            <th>@Model.Receptions</th>
+            <th>@Model.PassTDs</th>
+            <th>@Model.RushTDs</th>
+            <th>@Model.RecTDs</th>
           </tr>
-          }
+         // }
         }
         else
         {
           <tr>
-            <td>There are no details for @ViewBag.Player.FirstName @ViewBag.Player.LastName.</td>
+            <td>There are no details.</td>
           </tr>
         }
     </table>

@@ -4,4 +4,4 @@ namespace HFSclient.Models
   {
     public static string ApiKey = "TOKEN GOES HERE";
   }
-}
+} 

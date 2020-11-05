@@ -78,7 +78,7 @@
 ## 🌐 About the Project
 
 ### 📖 Description
-This is the Client for the Historical Fantasy Football api. with this client the users are able to establish different leagues, teams, add players to teams and simulate games played using historical players ranging from 1999-2004 at this time.
+This is the Client for the Historical Fantasy Sports Simulator api. with this client the users are able to establish different leagues, teams, add players to teams and simulate games played using historical players in the NFL ranging from 1999-2004 at this time.
 
 ### 🦠 Known Bugs
 
@@ -93,7 +93,9 @@ This is the Client for the Historical Fantasy Football api. with this client the
 
 ------------------------------
 
-## 🏁 Getting Started
+## 🏁 Getting Started/Design Process
+
+  Trello Board design steps https://trello.com/b/9yL8bKzm/fantasyfootballapi-app
 
 ### 📋 Prerequisites
 
@@ -144,12 +146,6 @@ This is the Client for the Historical Fantasy Football api. with this client the
   2) Run the command `dotnet ef database update` to generate the database through Entity Framework Core.
   3) (Optional) To update the database with any changes to the code, run the command `dotnet ef migrations add <MigrationsName>` which will use Entity Framework Core's code-first principle to generate a database update. After, run the previous command `dotnet ef database update` to update the database.
 
-
-  
-### Specs
-| Spec | Input | Output |
-| :-------------     | :------------- | :------------- |
-|  1.  ... | ... | ... |
 
   
 ### To Login as Administrator and Change Administrator Credentials

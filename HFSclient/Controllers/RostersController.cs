@@ -7,8 +7,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Threading.Tasks;
 
-namespace HFSclient.Controllers
-{
+namespace HFSclient.Controllers 
+{ 
   public class RostersController : Controller
   {
     public readonly HFSclientContext _db;
@@ -57,11 +57,16 @@ namespace HFSclient.Controllers
         //send error back "over roster size limit"
       }
       return RedirectToAction("Index", new { id = groupId}); //might have to change which view
-    }
+    }  
     public ActionResult Details(int id)
     {
       int PlayerId = id;
-      var model = Player.GetPlayerFromApi(PlayerId);
+
+      var model = Game.GetGameById(PlayerId).Result;
+      Player p = Player.GetPlayerFromApi(model.PlayerId).Result;
+      ViewBag.FirstName = p.FirstName;
+      ViewBag.LastName = p.LastName;
+      ViewBag.Position = p.Position;
       return View(model);
     }
 

@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace HFSclient.Controllers
-{  
+{       
   public class HomeController : Controller
-  {
+  { 
     private readonly HFSclientContext _db;
     public HomeController(HFSclientContext db)
     {
-      _db = db; 
+      _db = db ; 
     }
     public IActionResult Index()
     {

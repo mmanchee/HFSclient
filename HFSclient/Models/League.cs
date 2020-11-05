@@ -4,7 +4,7 @@ namespace HFSclient.Models
 {
   public class League 
   {
-    public League()
+    public League() 
     {
       this.Groups = new HashSet<Group>();
     }

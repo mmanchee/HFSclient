@@ -45,35 +45,35 @@ namespace HFSclient.Controllers
       {
         schedule.GroupId2 = GroupId2;
       }
-      if(Week != 0)
-      {
-        schedule.Week = Week;
-      }
+      if(Week != 0) 
+      { 
+        schedule.Week = Week; 
+      }  
       if(Team1Score != 0)
       {
         schedule.Team1Score = Team1Score;
       }
       if(Team2Score != 0)
-      {
-        schedule.Team2Score = Team2Score;
+      {  
+        schedule.Team2Score = Team2Score; 
       }
 
       _db.Schedules.Add(schedule);
       _db.SaveChanges();
-      return RedirectToAction("Index"); 
+      return RedirectToAction("Index");  
     }
     public ActionResult Details(int id)
     {
-      var thisSchedule = _db.Schedules
+      var thisSchedule = _db.Schedules 
         .FirstOrDefault(x => x.ScheduleId == id);
       ViewBag.Team1Trackers = _db.Trackers.Where(x => x.ScheduleId == id && x.GroupId == thisSchedule.GroupId1).OrderBy(x => x.Position); 
       ViewBag.Team2Trackers = _db.Trackers.Where(x => x.ScheduleId == id && x.GroupId == thisSchedule.GroupId2).OrderBy(x => x.Position); 
-      ViewBag.Team1Name = _db.Groups.Where(c => c.GroupId ==  thisSchedule.GroupId1);
-      ViewBag.Team2Name = _db.Groups.Where(c => c.GroupId ==  thisSchedule.GroupId2);
+      ViewBag.Team1Name = _db.Groups.Where(c => c.GroupId ==  thisSchedule.GroupId1).FirstOrDefault().TeamName;
+      ViewBag.Team2Name = _db.Groups.Where(c => c.GroupId ==  thisSchedule.GroupId2).FirstOrDefault().TeamName;
       return View(thisSchedule);
     }
 
-    [Authorize(Roles = "Administrator")]
+    [Authorize(Roles = "Administrator")] 
     public ActionResult Edit(int id)
     {
       var thisSchedule = _db.Schedules

@@ -62,5 +62,26 @@ namespace HFSclient.Models
             }
         }
     }
+    public static async Task<Game> GetGameById(int id)
+    {
+      var url = "http://localhost:5003/api/games/" + id ;
+
+        using (var client = new HttpClient())
+        {
+            client.BaseAddress = new Uri(url);
+
+            HttpResponseMessage response = await client.GetAsync(url);
+
+            if (response.IsSuccessStatusCode)
+            {
+                Response<Game> game = await response.Content.ReadAsAsync<Response<Game>>();
+                return game.Data;
+            }
+            else
+            {
+                return null;
+            }
+        }
+    }
   }
 }
