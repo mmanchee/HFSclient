@@ -5,6 +5,7 @@ using HFSclient.Models;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Threading.Tasks;
 
 namespace HFSclient.Controllers
 {
@@ -21,72 +22,73 @@ namespace HFSclient.Controllers
       ViewBag.Group = _db.Groups.FirstOrDefault(x => x.GroupId == id);
       return View(model);
     }
-
-    [Authorize(Roles = "Administrator")]
-    public ActionResult PlayerSearch(int id)// Search for Players
+    public ActionResult Search(int id)
     {
-      ViewBag.Owner.GroupId = id;
-      //var model ... find Available players
+      ViewBag.GroupId = id;
       return View();
     }
-
     [HttpPost]
-    public ActionResult AddPlayer(int GroupId, int PlayerId) //commish add players to rosterc
+    public async Task<ActionResult> Search(int id, string LastName)// Search for Players
     {
-      if(_db.Rosters.Where(x => x.GroupId == GroupId).Count() > 12)   //    Sets roster size
+      ViewBag.GroupId = id;
+      var model = await Player.SearchPlayer(LastName);
+      return View("PlayerSearch", model);      
+    }
+    public ActionResult AddPlayer(int id, int groupId) //commish add players to rosterc
+    {
+      System.Console.WriteLine(_db.Rosters.Where(x => x.GroupId == groupId).Count());
+      if(_db.Rosters.Where(x => x.GroupId == groupId).Count() <= 12)   //    Sets roster size
       {
-        Player p = GetPlayerFromApi(PlayerId)
+        System.Console.WriteLine(id);
+        System.Console.WriteLine(groupId);
+        var p = Player.GetPlayerFromApi(id); 
         Roster roster = new Roster();
-        roster.GroupId = GroupId;
-        roster.PlayerId = PlayerId;
+        roster.GroupId = groupId;
+        roster.PlayerId = id;
         roster.Position = "bench";
-        roster.LastName = p.LastName;
-        roster.FirstName = p.FirstName;
+        roster.FootballPosition = p.Result.Position;
+        roster.LastName = p.Result.LastName;
+        roster.FirstName = p.Result.FirstName;
         _db.Rosters.Add(roster);
         _db.SaveChanges();
       }
       else
       {
-          //send error back "over roster size limit"
+        //send error back "over roster size limit"
       }
-      
-      
-      return RedirectToAction("Index"); //might have to change which view
+      return RedirectToAction("Index", new { id = groupId}); //might have to change which view
     }
     public ActionResult Details(int id)
     {
       int PlayerId = id;
-      Player model = GetPlayerFromApi(PlayerId)
+      var model = Player.GetPlayerFromApi(PlayerId);
       return View(model);
     }
 
-
+    // public Task<ActionResult> Edit(int id )
+    // {
+    //   Roster r = _db.Rosters.Where(x => x.RosterId).FirstOrDefault();
+    //   View(r);
+    // }
     
-    [HttpPost]//may need to be a put
-    [Authorize(Roles = "Administrator")]
-    public ActionResult Edit(int id, string Position)
+    // [HttpPost]//may need to be a put
+    // [Authorize(Roles = "Administrator")]
+    public ActionResult Edit(int id)
     {
       var roster = _db.Rosters.FirstOrDefault(x => x.RosterId == id);
-      roster.Position = Position;
+      if(roster.Position == "bench")
+      {
+        roster.Position = roster.FootballPosition; 
+      }
+      else
+      {
+        roster.Position = "bench";
+      }
+      
       _db.Entry(roster).State = EntityState.Modified;
       _db.SaveChanges();
-      return RedirectToAction("Details", new { id = roster.GroupId});
+      return RedirectToAction("Index", new { id = roster.GroupId});
     }
-    
-    // [Authorize(Roles = "Administrator")]
-    // [HttpPost]
-    // public ActionResult Edit(League league)
-    // {
-    //   _db.Entry(league).State = EntityState.Modified;
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Details", new { id = league.LeagueId});
-    // }
-    // [HttpPost]
-    // public ActionResult Search(string leagueName)
-    // {
-    //   List<League> model = _db.Leagues.Where(x => x.LeagueName.Contains(leagueName)).ToList();
-    //   return View("Index", model);
-    // } 
     public ActionResult RemovePlayer(int id)
     {
       var model = _db.Rosters.FirstOrDefault(x => x.RosterId == id);
@@ -94,8 +96,8 @@ namespace HFSclient.Controllers
     }
     public ActionResult ConfirmRemove(int id, int groupId)
     {
-      var player = _db.Roster.FirstOrDefault(x => x.PlayerId == id && x.GroupId == groupId);
-      _db.EngineerLicense.Remove(player);
+      var player = _db.Rosters.FirstOrDefault(x => x.PlayerId == id && x.GroupId == groupId);
+      _db.Rosters.Remove(player);
       _db.SaveChanges();
       return RedirectToAction("Index", new {});
     }   

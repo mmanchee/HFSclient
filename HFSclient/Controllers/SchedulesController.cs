@@ -19,7 +19,7 @@ namespace HFSclient.Controllers
     {
       _db = db;
     }
-    public  ActionResult  Index()
+    public  ActionResult  Index(int id)
     {
         
       List<Schedule> model = _db.Schedules.ToList();
@@ -60,13 +60,13 @@ namespace HFSclient.Controllers
 
       _db.Schedules.Add(schedule);
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Index"); 
     }
     public ActionResult Details(int id)
     {
       var thisSchedule = _db.Schedules
         .FirstOrDefault(x => x.ScheduleId == id);
-      ViewBag.Team1Trackers = _db.Trackers.Where(x => x.ScheduleId == id && x.GroupId == thisSchedule.GroupId1)OrderBy(x => x.Position); 
+      ViewBag.Team1Trackers = _db.Trackers.Where(x => x.ScheduleId == id && x.GroupId == thisSchedule.GroupId1).OrderBy(x => x.Position); 
       ViewBag.Team2Trackers = _db.Trackers.Where(x => x.ScheduleId == id && x.GroupId == thisSchedule.GroupId2).OrderBy(x => x.Position); 
       ViewBag.Team1Name = _db.Groups.Where(c => c.GroupId ==  thisSchedule.GroupId1);
       ViewBag.Team2Name = _db.Groups.Where(c => c.GroupId ==  thisSchedule.GroupId2);
@@ -90,7 +90,7 @@ namespace HFSclient.Controllers
       return RedirectToAction("Details", new { id = schedule.ScheduleId});
     }
 
-    [Authorize(Roles = "Administrator")]
+    
     [HttpPost]
     public async Task<ActionResult> Sim(Schedule schedule ) //might be schedule id
     {
@@ -197,24 +197,26 @@ namespace HFSclient.Controllers
       return RedirectToAction("Index"); //enter proper view / next sim
     }
 
-    [Authorize(Roles = "Administrator")]// 12345678  1   2   3  4  5 6   7  8
+    // 12345678  1   2   3  4  5 6   7  8
                                         // 1         12  13 14 15 16 17 18  12
                                         //2     12  24 25 26 27 28 23  12
                                         // 3    34  31 
-    public ActionResult BuildSchedule(int LeagueId)                                         
+    public ActionResult BuildSchedule(int id)                                         
     {
-      List<Group> temp = _db.Groups.Where(x => x.LeagueId == LeagueId).ToList();
+      List<Group> temp = _db.Groups.Where(x => x.LeagueId == id).ToList();
+      System.Console.WriteLine(temp.Count()); 
       List<int> teams = new List<int>();
       foreach (Group group in temp)
       {
-          teams.Append(group.GroupId);
+          teams.Add(group.GroupId);
       }
       //let teams = ["1",'2','3','4','5','6','7','8','9']
       int count = teams.Count();
+      System.Console.WriteLine(count); 
       if( count % 2 == 1)
       {
         count++;
-        teams.Append(0);
+        teams.Add(0);
       }
       
       List<int> teams1 = teams.GetRange(0,count/2);
@@ -234,12 +236,14 @@ namespace HFSclient.Controllers
           // console.log(teams1)
           // console.log(teams2)
           // console.log('')
-        for(int j = 0; j < count / 2; j++)
+        for(int j = 0; j < teams1.Count(); j++)
         {
           //console.log(teams1[j] + teams2[j]);//create game
           Schedule schedule =new Schedule();
           schedule.GroupId1 = teams1[j];
           schedule.GroupId2 = teams2[j];
+          schedule.Team1Name = _db.Groups.Where(x => x.GroupId == schedule.GroupId1 ).FirstOrDefault().TeamName;
+          schedule.Team2Name = _db.Groups.Where(x => x.GroupId == schedule.GroupId2 ).FirstOrDefault().TeamName;
           schedule.IsComplete = false;
           schedule.Week = i + 1;
           _db.Schedules.Add(schedule);
@@ -248,23 +252,27 @@ namespace HFSclient.Controllers
         
         if(i % (count/2 - 1) == 0 && i != 0)
         {
-          int tmp = teams1[count/2 - 1];
-          teams1.RemoveAt(count/2 - 1);
+           
+          int tmp = teams1[teams1.Count() - 1];
+          teams1.RemoveAt(teams1.Count() - 1);
 
           teams2.Add(tmp);
          
           tmp = teams2[0];
           teams2.RemoveAt(0);
+          System.Console.WriteLine("1111" + teams1.Count() + ": " + i);
           int temp2 = teams1[0];
           teams1.RemoveAt(0);
           
-          teams1.Prepend(tmp);
-          teams1.Prepend(temp2);
+          teams1.Insert(0,tmp);// Prepend(tmp);
+          teams1.Insert(0, temp2);//(temp2);
        
         }
         else
         {
-          int tmp = teams1[count/2 - 1];
+          System.Console.WriteLine(count); 
+          System.Console.WriteLine(teams1.Count());
+          int tmp = teams1[(count/2) - 1];
           teams1.RemoveAt(count/2 - 1);
           //let temp = teams1.pop();
           
@@ -273,7 +281,7 @@ namespace HFSclient.Controllers
           tmp = teams2[0];
           teams2.RemoveAt(0);
                     
-          teams1.Prepend(tmp);
+          teams1.Insert(0,tmp);
         
           
           // temp = teams2.shift();
@@ -282,7 +290,7 @@ namespace HFSclient.Controllers
         }
       }
       _db.SaveChanges();
-      return RedirectToAction("index");// need to change to proper view
+      return RedirectToAction("Commish", "Leagues", new { id = id });// need to change to proper view 
     }
     public ActionResult LeagueSchedule(int id) //League Id
     {

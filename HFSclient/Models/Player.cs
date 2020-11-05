@@ -1,8 +1,10 @@
+using System.Collections.Generic;
 using System.Net.Http;
 using System;
 using System.Threading.Tasks;
 using HFSclient.Wrappers;
-namespace HFSaclient.Models
+
+namespace HFSclient.Models
 {
   public class Player
   {
@@ -14,7 +16,7 @@ namespace HFSaclient.Models
 
     public static async Task<Player> GetPlayerFromApi( int PlayerId)
     {
-      var url = "http://localhost:5003/api/player/" +  PlayerId ;
+      var url = "http://localhost:5003/api/players/" +  PlayerId ;
 
       using (var client = new HttpClient())
       {
@@ -35,7 +37,7 @@ namespace HFSaclient.Models
     }
     public static async Task<List<Player>> SearchPlayer( string LastName)
     {
-      var url = "http://localhost:5003/api/player/search?LastName=" +  LastName ;
+      var url = "http://localhost:5003/api/players/search?LastName=" +  LastName ;
 
       using (var client = new HttpClient())
       {
@@ -45,7 +47,7 @@ namespace HFSaclient.Models
 
           if (response.IsSuccessStatusCode)
           {
-              PagedResponse<List<Player>> game = await response.Content.ReadAsAsync<Response<Player>>();
+              PagedResponse<List<Player>> game = await response.Content.ReadAsAsync<PagedResponse<List<Player>>>();
               return game.Data;
           }
           else

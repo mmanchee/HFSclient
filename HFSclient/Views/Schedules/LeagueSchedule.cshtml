@@ -6,23 +6,17 @@
 @model List<HFSclient.Models.Schedule>;
 @{
   int week = 1;
-
-
-<p>week 1</p>
-@foreach (Schedule schedule in Model)
-{         
-          if(week != schedule.Week)
-          {
-            <p>week @week</p>
-            week++;
-          }
-          <p>@schedule.Team1Name</p>
-   <p> Away: @schedule.Team1Score</p>
-         <p> @schedule.Team2Name</p>
-   <p> Home: @schedule.Team2Score</p>
-
-
-}
-
-
+  <p>week 1</p>
+  @foreach (Schedule schedule in Model)
+  {         
+    if(week != schedule.Week)
+    {
+      <p>week @week</p>
+      week++;
+    }
+    <p>@schedule.Team1Name</p>
+    <p> Away: @schedule.Team1Score</p>
+    <p> @schedule.Team2Name</p>
+    <p> Home: @schedule.Team2Score</p>
+  }
 }

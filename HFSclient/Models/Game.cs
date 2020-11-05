@@ -3,6 +3,7 @@ using System.Net.Http;
 using System;
 using System.Threading.Tasks;
 using HFSclient.Wrappers;
+
 namespace HFSclient.Models
 {
   public class Game

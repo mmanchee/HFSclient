@@ -51,9 +51,12 @@ namespace HFSclient.Controllers
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
       var currentGroupId = _db.Groups.FirstOrDefault(x => x.LeagueId == id && x.User.Id == currentUser.Id);
-      if(currentGroupId.OwnerRole == "Commissioner")
+      if(currentGroupId != null)
       {
-        ViewBag.Owner = true;
+        if(currentGroupId.OwnerRole == "Commissioner")
+        {
+          ViewBag.Owner = true;
+        }
       }
       var league = _db.Leagues.FirstOrDefault(x => x.LeagueId == id);
       List<Group> model = _db.Groups.Where(x => x.LeagueId == id && x.LeagueSeason == league.CurrentSeason).ToList();
@@ -102,7 +105,7 @@ namespace HFSclient.Controllers
     public ActionResult RemoveOwner(int id)
     {
       var model = _db.Groups.FirstOrDefault(x => x.GroupId == id);
-      return View(model);
+      return View(model); 
     }
     public ActionResult ConfirmRemove(int id)
     {
@@ -111,6 +114,13 @@ namespace HFSclient.Controllers
       _db.Entry(groupToBeInactive).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Details", new {groupToBeInactive.LeagueId});
+    }
+
+    public ActionResult Commish(int id)
+    {
+      League l = _db.Leagues.FirstOrDefault(x => x.LeagueId == id);
+      
+      return View(l);
     }
   }
 }

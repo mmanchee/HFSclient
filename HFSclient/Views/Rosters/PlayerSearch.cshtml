@@ -2,6 +2,7 @@
   Layout = "_Layout";
 }
 
+@model List<Player>
 @using HFSclient.Models
 
 <div class="box">
@@ -17,8 +18,8 @@
       {
         <tr>
           <td>@player.FirstName @player.LastName</td>
-          <td>@Html.ActionLink(" View", "Details", new { id = player.PlayerId }, new {@class="btn btn-info"} )</td>
-          <td>@Html.ActionLink(" Add", "AddPlayer", new { groupId = @ViewBag.Owner.GroupId, id = player.PlayerId }, new {@class="btn btn-info"} )</td>
+          @* <td>@Html.ActionLink(" View", "Details", new { id = player.PlayerId }, new {@class="btn btn-info"} )</td> *@
+          <td>@Html.ActionLink(" Add", "AddPlayer", null, new { groupId = @ViewBag.GroupId, id = player.PlayerId }, new {@class="btn btn-info"} )</td>
         </tr>
       }
     </table>

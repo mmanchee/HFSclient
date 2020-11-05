@@ -2,13 +2,12 @@
   Layout = "_Layout";
 }
 
-@model HFSclient.Models.Group
+@model HFSclient.Models.Group;
 
 
 <hr />
 <p>Are you sure you want to remove this League?</p>
 <hr />
 @Html.Label("Team Name"): @Html.DisplayFor(model => model.TeamName)
-@using (Html.BeginForm())
 @Html.ActionLink(" Remove", "ConfirmRemove", null, new { id = Model.GroupId}, new { @class = "btn btn-info"})
 <hr />

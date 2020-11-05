@@ -6,6 +6,7 @@ namespace HFSclient.Models
         public int GroupId { get; set; }
         public int PlayerId { get; set; }
         public string Position { get; set; }
+        public string FootballPosition { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
     }

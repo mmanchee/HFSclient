@@ -1,0 +1,10 @@
+@{
+  Layout = "_Layout";
+}
+
+@using HFSclient.Models
+
+
+@Html.ActionLink(" Sim Week", "Sim", "Schedules", new { id = @Model.LeagueId}, new { @class = "btn btn-info"})
+@Html.ActionLink(" Generate Schedule", "BuildSchedule", "Schedules", new { id = @Model.LeagueId}, new { @class = "btn btn-info"})
+@Html.ActionLink(" Back", "Details", null, new { id = @Model.LeagueId}, new { @class = "btn btn-info"})

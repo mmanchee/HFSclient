@@ -19,9 +19,10 @@
           <tr>
             <td>@league.TeamName</td>
             <td>@Html.ActionLink(" View Team", "Index", "Rosters", new { id = league.GroupId }, new { @class = "btn-btn-info"})</td>
-            @if(@ViewBag.Owner)
+            @if(@ViewBag.Owner != null)
             {
-              <td>@Html.ActionLink(" Rmove", "RemoveOwner", null, new { id = league.GroupId }, new { @class = "btn-btn-info"})</td>
+              <td>@Html.ActionLink(" Remove", "RemoveOwner", null, new { id = league.GroupId }, new { @class = "btn-btn-info"})</td>
+              <td>@Html.ActionLink(" Add Player", "Search", "Rosters", new { id = league.GroupId }, new { @class = "btn-btn-info"})</td>
             }
           </tr>
         }
@@ -36,7 +37,11 @@
   </div>
 </div>
 <br>
-<p>@Html.ActionLink(" Edit League", "Edit", new { id = @ViewBag.League.LeagueId }, new {@class="btn btn-success btn-sm"})</p>
+@if(@ViewBag.Owner != null)
+{
+  <p>@Html.ActionLink(" Edit League", "Edit", new { id = @ViewBag.League.LeagueId }, new {@class="btn btn-success btn-sm"})</p>
+  <p>@Html.ActionLink(" Settings", "Commish", new { id = @ViewBag.League.LeagueId }, new {@class="btn btn-success btn-sm"})</p>
+}
 <p>@Html.ActionLink(" See All Leagues", "Index", null, null, new {@class="btn btn-info btn-sm"})</p>
 @if(@Model.Count < 13)
 {

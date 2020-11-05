@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+@using HFSclient.Models
+
+@using (Html.BeginForm())
+{
+  @Html.Hidden("id", (int) @ViewBag.GroupId)
+  <table>
+    <tr>
+      <td>Search for a Player</td>
+      <td>@Html.TextBox("LastName")</td>
+      <td><input type="submit" value="Search" class="btn btn-info btn-sm"/></td>
+    </tr>
+  </table>
+}
