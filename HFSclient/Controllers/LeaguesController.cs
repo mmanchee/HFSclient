@@ -37,12 +37,32 @@ namespace HFSclient.Controllers
     [HttpPost]
     public async Task<ActionResult> Create(League league)
     {
+      league.CurrentWeek = 1;
+      league.CurrentSeason = 1;
       _db.Leagues.Add(league);
       _db.SaveChanges();
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
-      Group groupRow = new Group {LeagueId = league.LeagueId, User = currentUser, TeamName = "Commish", LeagueSeason = league.CurrentSeason, OwnerRole = "Commissioner"};
+      Group groupRow = new Group {
+        LeagueId = league.LeagueId, 
+        User = currentUser, 
+        TeamName = "Commish", 
+        LeagueSeason = league.CurrentSeason, 
+        OwnerRole = "Commissioner"};
       _db.Groups.Add(groupRow);
+      _db.SaveChanges();
+      Standing standing = new Standing {
+        LeagueId = league.LeagueId,
+        GroupId = groupRow.GroupId,
+        TeamName = groupRow.TeamName,
+        Wins = 0,
+        Ties = 0,
+        Losses = 0,
+        PtsFor = 0,
+        PtsAgst = 0,
+        LeagueName = league.LeagueName
+      };
+      _db.Standings.Add(standing);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
@@ -96,9 +116,27 @@ namespace HFSclient.Controllers
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
-      var thisLeague = _db.Leagues.FirstOrDefault(x => x.LeagueId == group.LeagueId);
-      Group league = new Group {LeagueId = group.LeagueId, User = currentUser, TeamName = group.TeamName, LeagueSeason = thisLeague.CurrentSeason, OwnerRole = "Owner"};
-      _db.Groups.Add(league);
+      var league = _db.Leagues.FirstOrDefault(x => x.LeagueId == group.LeagueId);
+      Group groupRow = new Group {
+        LeagueId = group.LeagueId, 
+        User = currentUser, 
+        TeamName = group.TeamName, 
+        LeagueSeason = league.CurrentSeason, 
+        OwnerRole = "Owner"};
+      _db.Groups.Add(groupRow);
+      _db.SaveChanges();
+      Standing standing = new Standing {
+        LeagueId = league.LeagueId,
+        GroupId = groupRow.GroupId,
+        TeamName = groupRow.TeamName,
+        Wins = 0,
+        Ties = 0,
+        Losses = 0,
+        PtsFor = 0,
+        PtsAgst = 0,
+        LeagueName = league.LeagueName
+      };
+      _db.Standings.Add(standing);
       _db.SaveChanges();
       return RedirectToAction("Details", new {id = group.LeagueId});
     }

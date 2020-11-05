@@ -43,7 +43,7 @@ namespace HFSclient.Models
 
     public static async Task<Game> GetGameByWeek(int Week, int PlayerId)
     {
-      var url = "http://localhost:5003/api/GetGame/" + Week + "/" + PlayerId ;
+      var url = "http://localhost:5003/api/games/GetGame?Week=" + Week + "&PlayerId=" + PlayerId ;
 
         using (var client = new HttpClient())
         {

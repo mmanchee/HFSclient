@@ -8,9 +8,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace HFSclient.Controllers
 {
-  public class TrackersController : Controller
+  public class TrackersController : Controller 
   {
-    public readonly HFSclientContext _db;
+    public readonly HFSclientContext _db; 
     public TrackersController(HFSclientContext db)
     {
       _db = db;
@@ -24,7 +24,7 @@ namespace HFSclient.Controllers
     [Authorize(Roles = "Administrator")]
     public ActionResult Create()
     {
-      return View();
+      return View(); 
     }
 
     [Authorize(Roles = "Administrator")]

@@ -5,6 +5,6 @@
 @using HFSclient.Models
 
 
-@Html.ActionLink(" Sim Week", "Sim", "Schedules", new { id = @Model.LeagueId}, new { @class = "btn btn-info"})
+@Html.ActionLink(" Sim Week", "RunSim", "Schedules", new { id = @Model.LeagueId, week = @Model.CurrentWeek}, new { @class = "btn btn-info"})
 @Html.ActionLink(" Generate Schedule", "BuildSchedule", "Schedules", new { id = @Model.LeagueId}, new { @class = "btn btn-info"})
 @Html.ActionLink(" Back", "Details", null, new { id = @Model.LeagueId}, new { @class = "btn btn-info"})

@@ -53,3 +53,10 @@
 .inner-box {
   margin: 2% 5% 2% 5%;
 }
+.center-text {
+  text-align: center;
+}
+
+body {
+  margin-bottom: 80px;
+}

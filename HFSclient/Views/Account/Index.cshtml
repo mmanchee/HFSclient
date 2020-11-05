@@ -20,6 +20,7 @@ Button Join a League *@
     {
       <tr>
         <td>@league.League.LeagueName</td>
+        <td>@league.TeamName</td>
         <td>@Html.ActionLink(" View", "Details", "Leagues", new {id = league.League.LeagueId }, new { @class = "btn btn-info" })</td>
         <td>@Html.ActionLink(" Remove", "RemoveLeague", null, new {id = league.GroupId }, new { @class = "btn btn-info" })</td>
       </tr>

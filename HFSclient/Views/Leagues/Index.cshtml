@@ -26,10 +26,11 @@
           <td>There are no Leauges in this list.</td>
         </tr>
       }
-      @foreach (League league in Model)
+      @foreach (var league in Model)
       {
         <tr>
-          <td>@league.LeagueName</td>
+          <td>@league.League.LeagueName</td>
+          <td>@league.TeamName</td>
           <td>@Html.ActionLink("View", "Details", new { id = league.LeagueId }, new {@class="btn btn-info btn-sm"} )</td>
         </tr>
       }

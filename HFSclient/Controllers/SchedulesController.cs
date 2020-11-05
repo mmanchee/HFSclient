@@ -17,7 +17,7 @@ namespace HFSclient.Controllers
     public readonly HFSclientContext _db;
     public SchedulesController(HFSclientContext db)
     {
-      _db = db;
+      _db = db; 
     }
     public  ActionResult  Index(int id)
     {
@@ -89,38 +89,80 @@ namespace HFSclient.Controllers
       _db.SaveChanges();
       return RedirectToAction("Details", new { id = schedule.ScheduleId});
     }
-
+//   public async Task<ActionResult> Sim(int id, int week )
+//   {
+          
+// System.Console.WriteLine(week);
+//     var teams = _db.Groups.Where(x => x.LeagueId  == id).ToList();
+//       List<Schedule> games = new List<Schedule>();
+//       foreach (Group team in teams) 
+//       {
+//         List<Schedule> s = _db.Schedules.Where(x => x.GroupId1 == team.GroupId).ToList();
+//         foreach (Schedule  schedule in s)
+//         {
+//           if(schedule.Week == week)
+//           {
+            
+//             if(!(schedule.IsComplete))
+//             {
+//               games.Add(schedule);
+//               System.Console.WriteLine("here");
+//             }
+//           }
+            
+//         }
+          
+//       }
+//       return RedirectToAction("Runsim", new {id = id, schedules = games});
+//   }
     
-    [HttpPost]
-    public async Task<ActionResult> Sim(Schedule schedule ) //might be schedule id
+    
+    public async Task<ActionResult> RunSim(int id , int week  ) //might be schedule id 
     {
-      // Schedule schedule = new Schedule(); //likely be changed
-      // schedule.ScheduleId = _db.Schedules.Count() + 1; //likely be changed
-      // if(GroupId1 != 0)
-      // {
-      //   schedule.GroupId1 = GroupId1;
-      // }
-      // if(GroupId2 != 0)
-      // {
-      //   schedule.GroupId2 = GroupId2;
-      // }
-      // if(Week != 0)
-      // {
-      //   schedule.Week = Week;
-      // }
+      var teams = _db.Groups.Where(x => x.LeagueId  == id).ToList();
+      List<Schedule> games = new List<Schedule>();
+      foreach (Group team in teams) 
+      {
+        List<Schedule> s = _db.Schedules.Where(x => x.GroupId1 == team.GroupId).ToList();
+        
+        foreach (Schedule  schedule in s)
+        {
+          //System.Console.WriteLine(schedule.Team1Name);
+          if(schedule.Week == week)
+          {
+            System.Console.WriteLine(schedule.Team1Name);
+            
+              games.Add(schedule);
+              System.Console.WriteLine(games.Count());
+              System.Console.WriteLine("here");
+            
+          }
+            
+        }
+          
+      }
+
+
+
+      System.Console.WriteLine(games.Count());
+      foreach (Schedule schedule in games)
+      {
+      
       List<Roster> roster1 = _db.Rosters.Where(x => x.GroupId == schedule.GroupId1).ToList();
       List<Roster> roster2 = _db.Rosters.Where(x => x.GroupId == schedule.GroupId2).ToList();
       int teamscore = 0;
       foreach (Roster roster in roster1)
       {
           Game game = await Game.GetGameByWeek(schedule.Week, roster.PlayerId); //get game by roster.GameId;
-          Tracker tracker = new Tracker();
-          tracker.GameId = game.GameId;
-          tracker.GroupId = schedule.GroupId1;
-          tracker.Position = roster.Position;
-          tracker.FirstName = roster.FirstName;
-          tracker.LastName = roster.LastName;
-          tracker.Points = game.CalcScore(); //calculate fantasy points here 
+          System.Console.WriteLine(game.Team);
+          Tracker tracker = new Tracker {
+            GameId = game.GameId,
+            GroupId = schedule.GroupId1,
+            Position = roster.Position,
+            FirstName = roster.FirstName,
+            LastName = roster.LastName,
+            Points = game.CalcScore()
+          }; //calculate fantasy points here 
           if(tracker.Position != "bench")//make sure not a bench player and add to schedule points for the team
           {
             teamscore += tracker.Points;
@@ -133,13 +175,14 @@ namespace HFSclient.Controllers
       foreach (Roster roster in roster2)
       {
           Game game = await Game.GetGameByWeek(schedule.Week, roster.PlayerId); //get game by roster.GameId;
-          Tracker tracker = new Tracker();
-          tracker.GameId = game.GameId;
-          tracker.GroupId = schedule.GroupId2;
-          tracker.Position = roster.Position;
-          tracker.FirstName = roster.FirstName;
-          tracker.LastName = roster.LastName;
-          tracker.Points = game.CalcScore(); //calculate fantasy points here 
+          Tracker tracker = new Tracker {
+            GameId = game.GameId,
+            GroupId = schedule.GroupId2,
+            Position = roster.Position,
+            FirstName = roster.FirstName,
+            LastName = roster.LastName,
+            Points = game.CalcScore()
+          }; //calculate fantasy points here 
           if(tracker.Position != "bench")//make sure not a bench player and add to schedule points for the team
           {
             teamscore += tracker.Points;
@@ -149,6 +192,7 @@ namespace HFSclient.Controllers
           
       }
       schedule.Team2Score = teamscore;
+      schedule.IsComplete = true;
       //update standings
 
       Standing standingTeam1 = _db.Standings.Where(x => x.GroupId == schedule.GroupId1).FirstOrDefault();
@@ -190,11 +234,13 @@ namespace HFSclient.Controllers
 
       _db.Entry(standingTeam1).State = EntityState.Modified; 
       _db.Entry(standingTeam2).State = EntityState.Modified;
-
-
-      _db.Schedules.Add(schedule);
+      _db.Entry(schedule).State = EntityState.Modified;;
+      }
+      League l = _db.Leagues.Where(x => x.LeagueId == id).FirstOrDefault();
+      l.CurrentWeek++;
+      _db.Entry(l).State = EntityState.Modified;
       _db.SaveChanges();
-      return RedirectToAction("Index"); //enter proper view / next sim
+      return RedirectToAction("Commish", "Leagues", new { id = id });
     }
 
     // 12345678  1   2   3  4  5 6   7  8
@@ -286,8 +332,8 @@ namespace HFSclient.Controllers
           
           // temp = teams2.shift();
           // teams1.unshift(temp)
-          
-        }
+           
+        } 
       }
       _db.SaveChanges();
       return RedirectToAction("Commish", "Leagues", new { id = id });// need to change to proper view 
@@ -296,7 +342,7 @@ namespace HFSclient.Controllers
     {
       var teams = _db.Groups.Where(x => x.LeagueId  == id).ToList();
       List<Schedule> games = new List<Schedule>();
-      foreach (Group team in teams)
+      foreach (Group team in teams) 
       {
         List<Schedule> s = _db.Schedules.Where(x => x.GroupId1 == team.GroupId).ToList();
         foreach (Schedule  schedule in s)
@@ -307,7 +353,7 @@ namespace HFSclient.Controllers
       }
         
       
-      return View(games.OrderBy(x => x.Week));
+      return View(games.OrderBy(x => x.Week).ToList());
     }
 
     

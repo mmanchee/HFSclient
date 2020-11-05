@@ -3,20 +3,45 @@
 }
 @using HFSclient.Models;
 
-@model List<HFSclient.Models.Schedule>;
-@{
+@model List<Schedule>;
+@{ 
   int week = 1;
-  <p>week 1</p>
-  @foreach (Schedule schedule in Model)
-  {         
-    if(week != schedule.Week)
+  <table>
+    <tr>
+      <th>Week</th>
+      <th>Visitor</th> 
+      <th>Score</th>
+      <th>Home</th>
+      <th>Score</th>
+    </tr>
+    <tr>
+      <td>-----------</td>
+      <td>-----------</td>
+      <td>-----------</td>
+      <td>-----------</td>
+      <td>-----------</td>
+    </tr>
+    @foreach (Schedule schedule in Model)
     {
-      <p>week @week</p>
-      week++;
+      <tr>    
+      @if(week != schedule.Week)
+      {
+        week++;
+        <tr>
+          <td>-----------</td>
+          <td>-----------</td>
+          <td>-----------</td>
+          <td>-----------</td>
+          <td>-----------</td>
+        </tr>
+      }
+        <td class="center-text">@schedule.Week</td>
+        <td>@schedule.Team1Name</td>
+        <td class="center-text">@schedule.Team1Score</td>
+        <td>@schedule.Team2Name</td>
+        <td class="center-text">@schedule.Team2Score</td>
+      </tr>
+      
     }
-    <p>@schedule.Team1Name</p>
-    <p> Away: @schedule.Team1Score</p>
-    <p> @schedule.Team2Name</p>
-    <p> Home: @schedule.Team2Score</p>
-  }
+  </table>
 }

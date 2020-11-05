@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace HFSclient.Models
 {
-  public class League
+  public class League 
   {
     public League()
     {
@@ -11,6 +11,7 @@ namespace HFSclient.Models
     public int LeagueId { get; set; }
     public string LeagueName { get; set; }
     public int CurrentSeason { get; set; }
+    public int CurrentWeek { get; set; }
     public virtual ICollection<Group> Groups { get; }  
   }
 }

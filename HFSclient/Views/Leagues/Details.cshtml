@@ -35,7 +35,7 @@
       }
     </table>
   </div>
-</div>
+</div> 
 <br>
 @if(@ViewBag.Owner != null)
 {
@@ -47,6 +47,8 @@
 {
   <p>@Html.ActionLink(" Join League", "Join", new { id = @ViewBag.League.LeagueId }, new {@class="btn btn-success btn-sm"})</p>
 }
+@Html.ActionLink(" View Schedule", "LeagueSchedule", "Schedules", new { id = @ViewBag.League.LeagueId }, new { @class="btn btn-info"})
+@Html.ActionLink(" View Standings", "Index", "Standings", new { id = @ViewBag.League.LeagueId }, new { @class="btn btn-info"})
 @* League
 Current Players
 User clicks on themselves -> Roster
